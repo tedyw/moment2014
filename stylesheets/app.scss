@@ -1,0 +1,182 @@
+/**
+ * This app.css is all yours, if you wish to have it ready with your application put it in here!
+ */
+
+// Vbbb
+
+$d: #000;
+$light: white;
+$grey: #bbb;
+$dark: $d;
+$purple: #644f7a;
+$gutter:15px; 
+
+// INIT
+
+html, body {
+	height:100%;
+	width: 100%;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	top:44px;
+	background:#f9f9f9;
+	font-family:"Open Sans", Helvetica;
+	font-weight:300;
+}
+
+.container { 
+
+	height:100%;
+	min-height:100%;
+	width:100%;
+	position: relative;
+
+}
+
+.row {
+	@media only screen and (min-width: 768px){
+		width: 100%;
+		max-width: 940px;
+		min-width: 768px;
+	}
+}
+
+p { font-size:16px; }
+
+.top-bar {
+	margin:0 auto;
+
+	background:$dark;
+}
+
+.admin-bar .primary-nav {
+	top: 28px;
+}
+
+.primary-nav {
+	width: 100%;
+	top: 0;
+	background:$dark;
+	position: fixed;
+	z-index: 100;
+}
+
+.autocolor {
+
+	color:$grey;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $grey;
+	}
+
+	@media only screen and (min-width: 768px){
+		color:$dark;
+
+		h1,h2,h3,h4,h5,h6 {
+			color: $dark;
+		}
+
+	}
+}
+
+.light {
+	color:$light!important;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $light!important;
+	}
+}
+
+.grey {
+	color:$grey!important;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $grey!important;
+	}
+}
+
+.dark {
+	color:$dark!important;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $dark!important;
+	}
+}
+
+.white-bg {
+	background:white;
+}
+
+.nomargin {
+	margin:0;
+}
+
+.t { display:table; width: 100%;}
+.tc { display:table-cell; }
+.tc.vm {vertical-align:middle;}
+
+// PAGE TEMPLATE START
+
+.page-template-start-php .post-box {
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center bottom;
+}
+
+.page-template-start-php .intro {
+	height: 100%;
+	text-align:center;
+}
+
+.page-template-start-php .image {
+	height: 75%;
+	text-align:center;
+	background-attachment: fixed;
+}
+
+.page-template-start-php .image.bottom {
+	background-position: center bottom;
+}
+
+.page-template-start-php .image.top {
+	background-position: center top;
+}
+
+.page-template-start-php .image.center {
+	background-position: center center;
+}
+
+.page-template-start-php .presentation {
+	padding:$gutter*4 0;
+}
+
+// UI
+
+#menu .active a {
+	color:$purple;
+}
+
+table, table * {
+	-webkit-border-radius: 0!important;
+	-moz-border-radius: 0!important;
+	border-radius: 0!important;
+	border:none;
+}
+
+.imagegrid {
+	padding:$gutter;
+}
+
+.circle {
+	margin: auto;
+	padding:$gutter*2;
+	width:280px;
+	height:280px;
+	-webkit-border-radius: 500px;
+	-moz-border-radius: 500px;
+	border-radius: 500px;
+	border:5px dashed $purple;
+} 

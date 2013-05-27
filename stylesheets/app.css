@@ -1,0 +1,132 @@
+/**
+ * This app.css is all yours, if you wish to have it ready with your application put it in here!
+ */
+html, body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  padding: 0;
+  margin: 0;
+  top: 44px;
+  background: #f9f9f9;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 300; }
+
+.container {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative; }
+
+@media only screen and (min-width: 768px) {
+  .row {
+    width: 100%;
+    max-width: 940px;
+    min-width: 768px; } }
+
+p {
+  font-size: 16px; }
+
+.top-bar {
+  margin: 0 auto;
+  background: black; }
+
+.admin-bar .primary-nav {
+  top: 28px; }
+
+.primary-nav {
+  width: 100%;
+  top: 0;
+  background: black;
+  position: fixed;
+  z-index: 100; }
+
+.autocolor {
+  color: #bbbbbb; }
+  .autocolor h1, .autocolor h2, .autocolor h3, .autocolor h4, .autocolor h5, .autocolor h6 {
+    color: #bbbbbb; }
+  @media only screen and (min-width: 768px) {
+    .autocolor {
+      color: black; }
+      .autocolor h1, .autocolor h2, .autocolor h3, .autocolor h4, .autocolor h5, .autocolor h6 {
+        color: black; } }
+
+.light {
+  color: white !important; }
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    color: white !important; }
+
+.grey {
+  color: #bbbbbb !important; }
+  .grey h1, .grey h2, .grey h3, .grey h4, .grey h5, .grey h6 {
+    color: #bbbbbb !important; }
+
+.dark {
+  color: black !important; }
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: black !important; }
+
+.white-bg {
+  background: white; }
+
+.nomargin {
+  margin: 0; }
+
+.t {
+  display: table;
+  width: 100%; }
+
+.tc {
+  display: table-cell; }
+
+.tc.vm {
+  vertical-align: middle; }
+
+.page-template-start-php .post-box {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center bottom; }
+
+.page-template-start-php .intro {
+  height: 100%;
+  text-align: center; }
+
+.page-template-start-php .image {
+  height: 75%;
+  text-align: center;
+  background-attachment: fixed; }
+
+.page-template-start-php .image.bottom {
+  background-position: center bottom; }
+
+.page-template-start-php .image.top {
+  background-position: center top; }
+
+.page-template-start-php .image.center {
+  background-position: center center; }
+
+.page-template-start-php .presentation {
+  padding: 60px 0; }
+
+#menu .active a {
+  color: #644f7a; }
+
+table, table * {
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  border-radius: 0!important;
+  border: none; }
+
+.imagegrid {
+  padding: 15px; }
+
+.circle {
+  margin: auto;
+  padding: 30px;
+  width: 280px;
+  height: 280px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  border: 5px dashed #644f7a; }
