@@ -15,20 +15,31 @@
             <header class="primary-nav">
                 <div class="row">
                     <hgroup class="twelve columns">
-                    <nav class="top-bar ">
+                    <nav class="top-bar">
                         <ul>
-                            <li class="name"><h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1></li>
-                            <li class="toggle-topbar"><a href="#"></a></li>
-                        </ul>
-                        <section>
-                            <ul id="menu" class="left" data-magellan-expedition>
-                                <li data-magellan-arrival="start"><a href="#start">Start</a></li>
-                                <li data-magellan-arrival="om-oss"><a href="#om-oss">Om oss</a></li>
-                                <li data-magellan-arrival="priser-och-oppettider"><a href="#priser-och-oppettider">Priser och öppettider</a></li>
-                                <li data-magellan-arrival="hitta-hit"><a href="#hitta-hit">Hitta hit</a></li>
-                            </ul>
-                        </section>
-                    </nav>
+                        <li><img class="left menu-logo" src="<?php echo get_bloginfo('stylesheet_directory')?>/images/logo-invert.svg" /></li>
+                        <li><div aria-hidden="true" class="icon-facebook"></div></li>
+                        <li><div aria-hidden="true" class="icon-vimeo"></div></li>
+                        <li><div aria-hidden="true" class="icon-instagram"></div></li>
+                        <li><div aria-hidden="true" class="icon-twitter"></div></li>
+                        <li><div aria-hidden="true" class="icon-mail"></div></li>
+                        <li class="toggle-topbar"><a href="#"></a></li>
+                    </ul>
+                    <section>
+                    <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'primary',
+                            'depth' => 0,
+                            'items_wrap' => '<ul class="right">%3$s</ul>',
+                            'fallback_cb' => 'required_menu_fallback', // workaround to show a message to set up a menu
+                            'walker' => new REQ_Moment_Walker( array(
+                                'in_top_bar' => true,
+                                'item_type' => 'li'
+                            ) ),
+                        ) );
+                    ?>
+                    </section>
+                </nav>
                     </hgroup>
                 </div>
             </header>    

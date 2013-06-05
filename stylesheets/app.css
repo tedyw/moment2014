@@ -1,14 +1,91 @@
 /**
  * This app.css is all yours, if you wish to have it ready with your application put it in here!
  */
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+[class*="icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 18px;
+  height: 42px;
+  width: 42px;
+  color: black;
+  background: white;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  margin: 0;
+  margin-right: 15px;
+  padding: 12px; }
+
+.icon-facebook:before {
+  content: "\21"; }
+
+.icon-vimeo:before {
+  content: "\22"; }
+
+.icon-twitter:before {
+  content: "\23"; }
+
+.icon-tumblr:before {
+  content: "\24"; }
+
+.icon-instagram:before {
+  content: "\25"; }
+
+.icon-feed:before {
+  content: "\26"; }
+
+.icon-user:before {
+  content: "\27"; }
+
+.icon-location:before {
+  content: "\28"; }
+
+.icon-clock:before {
+  content: "\29"; }
+
+.icon-mail:before {
+  content: "\2a"; }
+
+.icon-calendar:before {
+  content: "\2b"; }
+
 html, body {
   height: 100%;
   width: 100%; }
 
 body {
-  padding: 0;
-  margin: 0;
-  top: 44px;
+  padding-top: 60px;
+  top: 74px;
   background: #f9f9f9;
   font-family: "Open Sans", Helvetica;
   font-weight: 300; }
@@ -28,9 +105,40 @@ body {
 p {
   font-size: 16px; }
 
+.top-bar [class*="icon-"] {
+  float: left; }
+
 .top-bar {
-  margin: 0 auto;
-  background: black; }
+  margin: 15px auto;
+  background: none;
+  color: white; }
+
+.top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active, .top-bar ul > li:not(.name):focus {
+  background: none; }
+
+.top-bar ul > li:not(.name):hover a, .top-bar ul > li:not(.name).active a, .top-bar ul > li:not(.name):focus a {
+  color: white; }
+
+.top-bar ul > li a:not(.button) {
+  color: white;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 0; }
+  @media only screen and (min-width: 940px) {
+    .top-bar ul > li a:not(.button) {
+      padding-right: 15px; } }
+
+.top-bar ul > li:last-child a:not(.button) {
+  padding-right: 0; }
+
+@media only screen and (max-width: 939px) {
+  .top-bar ul.left, .top-bar ul.right {
+    clear: left;
+    text-align: center; } }
+
+.top-bar ul > li.toggle-topbar {
+  z-index: 1000;
+  width: 60px; }
 
 .admin-bar .primary-nav {
   top: 28px; }
@@ -83,6 +191,9 @@ p {
 .tc.vm {
   vertical-align: middle; }
 
+.page-template-start-php {
+  padding-top: 0; }
+
 .page-template-start-php .post-box {
   -webkit-background-size: cover;
   background-size: cover;
@@ -109,6 +220,75 @@ p {
 .page-template-start-php .presentation {
   padding: 60px 0; }
 
+.page-template-start-php .background-logo {
+  background-image: url(../images/logo-invert.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 25%;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px; }
+
+.menu-logo {
+  height: 42px;
+  width: 42px;
+  margin: 0;
+  margin-right: 15px;
+  background: white;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  padding: 12px 12px 10px 10px;
+  float: left; }
+
+.js .circle.start {
+  margin-left: 0;
+  top: 9999px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: top 2s, margin-left 1s, color 1s, background 1s, opacity 3s;
+  -moz-transition: top 2s, margin-left 1s, color 1s, background 1s, opacity 3s;
+  -ms-transition: top 2s, margin-left 1s, color 1s, background 1s, opacity 3s;
+  -o-transition: top 2s, margin-left 1s, color 1s, background 1s, opacity 3s;
+  transition: top 2s, margin-left 1s, color 1s, background 1s, opacity 3s; }
+
+.screen {
+  height: 100%;
+  width: 100%;
+  display: table; }
+
+.screen > .inner {
+  display: table-cell;
+  vertical-align: middle; }
+
+.screen.bottom > .inner {
+  vertical-align: bottom; }
+
+.screen.top > .inner {
+  vertical-align: top; }
+
+.screen.second {
+  background: white;
+  overflow-x: hidden; }
+  .screen.second .inner {
+    position: relative;
+    margin-top: 100%;
+    left: 9999px;
+    transition: left 1s;
+    -moz-transition: left 1s;
+    /* Firefox 4 */
+    -webkit-transition: left 1s;
+    /* Safari and Chrome */
+    -o-transition: left 1s;
+    /* Opera */ }
+
+aside ul {
+  list-style-type: none;
+  margin-left: 0!important; }
+
 #menu .active a {
   color: #644f7a; }
 
@@ -122,11 +302,120 @@ table, table * {
   padding: 15px; }
 
 .circle {
-  margin: auto;
-  padding: 30px;
-  width: 280px;
-  height: 280px;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
-  border: 5px dashed #644f7a; }
+  display: table;
+  margin: 0 auto;
+  width: 90%;
+  text-shadow: 0 0 48px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 48px rgba(0, 0, 0, 0.1); }
+
+.circle .inner {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center; }
+
+.circle .hero {
+  font-size: 48px;
+  font-weight: 800; }
+  @media only screen and (max-width: 479px) {
+    .circle .hero {
+      font-size: 24px; } }
+
+.dates {
+  position: fixed; }
+
+.dates .four.columns {
+  width: 33%!important;
+  float: left!important; }
+
+.transparent-85 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  opacity: 0.85; }
+
+.invert {
+  background: black;
+  color: white; }
+
+.normal {
+  background: white;
+  color: black; }
+
+.noise {
+  background: white;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoW  WpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhS  nO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==");
+  color: white; }
+
+.spaced {
+  margin: 60px auto; }
+
+.background {
+  background-image: url(../images/startbg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1; }
+
+.countdownHolder {
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: -3px;
+  position: absolute;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: 300;
+  top: 60%;
+  opacity: 0.4; }
+
+.position {
+  display: inline-block;
+  height: 3em;
+  overflow: hidden;
+  position: relative;
+  width: 1em; }
+
+.digit {
+  display: block;
+  position: absolute;
+  text-align: center;
+  letter-spacing: -1px;
+  padding: 0.4em 0;
+  width: 1em;
+  font-size: 10px;
+  background-color: rgba(255, 255, 255, 0.1); }
+
+/**
+ * You can use these classes to hide parts
+ * of the countdown that you don't need.
+ */
+.countDays {
+  /* display:none !important;*/ }
+
+.countDiv0 {
+  /* display:none !important;*/ }
+
+.countDiv {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: relative; }
+
+.countDiv:before,
+.countDiv:after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: #444;
+  border-radius: 50%;
+  left: 50%;
+  margin-left: 0px;
+  top: -1.5em;
+  content: ''; }
+
+.countDiv:after {
+  top: -1.2em; }
