@@ -17,14 +17,15 @@
                     <hgroup class="twelve columns">
                     <nav class="top-bar">
                         <ul>
-                        <li><img class="left menu-logo" src="<?php echo get_bloginfo('stylesheet_directory')?>/images/logo-invert.svg" /></li>
-                        <li><div aria-hidden="true" class="icon-facebook"></div></li>
-                        <li><div aria-hidden="true" class="icon-vimeo"></div></li>
-                        <li><div aria-hidden="true" class="icon-instagram"></div></li>
-                        <li><div aria-hidden="true" class="icon-twitter"></div></li>
-                        <li><div aria-hidden="true" class="icon-mail"></div></li>
-                        <li class="toggle-topbar"><a href="#"></a></li>
-                    </ul>
+                            <li class="site-title">Moment</li>  
+                            <li><img class="left menu-logo" src="<?php echo get_bloginfo('stylesheet_directory')?>/images/logo-invert.svg" /></li>
+                            <li><div aria-hidden="true" class="icon-facebook"></div></li>
+                            <li><div aria-hidden="true" class="icon-vimeo"></div></li>
+                            <li><div aria-hidden="true" class="icon-instagram"></div></li>
+                            <li><div aria-hidden="true" class="icon-twitter"></div></li>
+                            <li><div aria-hidden="true" class="icon-mail"></div></li>
+                            <li class="toggle-topbar"><a href="#"></a></li>
+                        </ul>
                     <section>
                     <?php
                         wp_nav_menu( array(
