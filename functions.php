@@ -274,3 +274,66 @@ class REQ_Moment_Walker extends Walker_Nav_Menu {
 		}
   	}
 }
+
+function custom_post_company() {
+	register_post_type( 'company',
+		array(
+			'labels' => array(
+				'name' => __( 'Companies' ),
+				'singular_name' => __( 'Company' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'companies'),
+			'taxonomies' => array('company_type'),
+			'supports' => array( 'title', 'thumbnail', 'revisions', 'page-attributes' )
+		)
+	);
+}
+add_action( 'init', 'custom_post_company' );
+
+function custom_post_superior() {
+	register_post_type( 'superior',
+		array(
+			'labels' => array(
+				'name' => __( 'Superiors' ),
+				'singular_name' => __( 'Superior' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'superiors'),
+			'supports' => array( 'title', 'thumbnail', 'custom-fields', 'revisions', 'page-attributes' )
+		)
+	);
+}
+add_action( 'init', 'custom_post_superior' );
+
+// create two taxonomies, genres and writers for the post type "book"
+function create_custom_taxonomies() {
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Company Types', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Company Type', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Company Types' ),
+		'all_items'         => __( 'All Company Types' ),
+		'parent_item'       => __( 'Parent Company Type' ),
+		'parent_item_colon' => __( 'Parent Company Type:' ),
+		'edit_item'         => __( 'Edit Company Type' ),
+		'update_item'       => __( 'Update Company Type' ),
+		'add_new_item'      => __( 'Add New Company Type' ),
+		'new_item_name'     => __( 'New Company Type Name' ),
+		'menu_name'         => __( 'Company Type' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'company_type' ),
+	);
+
+	register_taxonomy( 'company_type', array( 'company' ), $args );
+}
+add_action( 'init', 'create_custom_taxonomies', 0 );

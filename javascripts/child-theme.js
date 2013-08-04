@@ -3,108 +3,93 @@
  */
 (function($) {
 
-	function startUpdate(){
+	var $time = 360,	//this is the count down time in seconds.
+		$seconds = $time,
+		$sTick = $seconds % 60,  //60
+		$mTick = 0, // 60
+		$hTick = 0, // 24
+		$dTick = 0, // 31
+		$year = 2014; //this is the current year.
 
-		if ($(window).scrollTop() <= 0) {
-			$(".circle.counter").each(function(){
-					$(this).css({
-							"margin-left": "",
-							"positon": "",
-							"width":""
-						}),
-					$(this).removeClass("rotate");
-			}),
-			$(".screen.second .inner").css({
-				"left": ""
-			});
-		}
-
-		if ($(window).scrollTop() > 0){
-			$(".circle.counter").each(function(i){
-				$(this).css({
-						"margin-left": -100*i+"%",
-						"positon": "fixed",
-					}),
-				$(this).addClass("rotate");
-			}),
-			$(".screen.second .inner").css({
-				"left": 0
-			});
-		}
-
-		if ($(window).scrollTop() >= $(window).height()/2){
-			$(".circle.counter").each(function(i){
-				$(this).css({
-					"opacity": 0
-				});
-			});
-		} else {
-			$(".circle.counter").each(function(i){
-				$(this).css({
-					"opacity": 1
-				});
-			});
-		}	
+	function daysInMonth(month, year) {
+	    return new Date(year, month, 0).getDate();
 	}
+
+	function rotate(degree, ring) {
+		
+		var r = ring.data('rotation') + degree;
+
+	    ring.css({
+	                '-webkit-transform': 'rotate(' + r + 'deg)',
+	                '-moz-transform': 'rotate(' + r + 'deg)',
+	                '-ms-transform': 'rotate(' + r + 'deg)',
+	                '-o-transform': 'rotate(' + r + 'deg)',
+	                'transform': 'rotate(' + r + 'deg)',
+	                'zoom': 1
+	    }).data('rotation', r);
+	}
+
+	function startCountdown() {
+
+		if(($seconds - 1) >= 0){
+
+			if($sTick > 0 && $seconds % 60 > 0){
+				$sTick--;
+			} else {
+				$sTick = 60;
+			}
+
+			$(".seconds span").removeClass("active");
+			$(".seconds span").eq($sTick-2).addClass("active"); 
+			$seconds = $seconds - 1;
+			rotate(6,$(".seconds"));
+			$minutes = Math.ceil($seconds/60);
+
+			if($minutes >= 0 && $sTick == 60){
+
+				if($mTick > 0){
+						$mTick--;
+					} else {
+						$mTick = 60;
+				}
+
+				$(".minutes span").removeClass("active");
+				$(".minutes span").eq($mTick-2).addClass("active");
+				rotate(6,$(".minutes"));
+				$hours = Math.ceil($minutes/60);
+					
+					if($hours >= 0 && $mTick == 60){
+						
+						if($hTick > 0){
+								$hTick--;
+							} else {
+								$hTick = 24;
+						}
+
+						$(".hours span").removeClass("active");
+						$(".hours span").eq($hTick-2).addClass("active");
+						rotate(15,$(".hours"));
+						$days = Math.ceil($hours/24);
+					}
+			}
+
+			setTimeout(startCountdown, 1000);   
+		}
+   }
 
 	init = function(){
-
-		$(".circle.start").each(function(i){
-			$(this).css({
-				"opacity": 1,
-				"top": 0
-			});
-		}),
-
-		$(".screen.second").css({
-			"margin-top": $(window).height()
-		});
-
-		var ts = new Date(2014, 01, 30),
-		newYear = true;
-	
-		if((new Date()) > ts){
-			// The new year is here! Count towards something else.
-			// Notice the *1000 at the end - time must be in milliseconds
-			ts = (new Date()).getTime();
-			newYear = false;
-		}
-			
-		$('#countdown').countdown({
-			timestamp	: ts,
-			callback	: function(days, hours, minutes, seconds){
-				
-				var message = "";
-				
-				message += days + " day" + ( days==1 ? '':'s' ) + ", ";
-				message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
-				message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
-				message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
-				
-			}
-		});
-	}
-
-	reset = function(){
-		$(".circle.start").each(function(i){ 
-			$(this).css({
-				"top": 0
-			});
-		})
+		startCountdown();
+		
 	}
 
     $(window).load(function(){
-    	reset();
     	init();
-
     });
 
     $(window).resize(function(){
-    	reset();
     });
 
     $(window).scroll(function(){
-    	startUpdate();
     });
 
 }(jQuery));
