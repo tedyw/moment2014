@@ -191,6 +191,19 @@ article:first-child {
 article:last-child {
 	border-bottom:none;
 }
+.js .frontoverlay{
+	background:black;
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:9999;
+	opacity: 1;
+	@include transition(opacity,2s);
+}
+
+.js .frontoverlay.armed{
+	opacity:0;
+}
 
 .site-title { text-transform:uppercase; font-weight:300; margin-right:$gutter;}
 
@@ -298,7 +311,11 @@ p { font-size:16px; }
 	background:none;
 	color:$light;
 
-	.iconmenu li {display:inline-block; vertical-align:top;}
+	.iconmenu li {
+		display:inline-block; 
+		vertical-align:top;
+	}
+
 	@media only screen and (max-width: 940px){
 		.iconmenu.socialicons {
 			display: inline-block;
@@ -307,6 +324,21 @@ p { font-size:16px; }
 		}
 	}
 }
+
+.js .home .socialicons li {
+		opacity: 0;
+		-webkit-transform:rotate(90deg);
+		-ms-transform:rotate(90deg);
+		transform:rotate(90deg);
+		@include transition(all, 1s);
+	}
+
+	.js .home .socialicons li.armed {
+		opacity: 1;
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
 
 .top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active, .top-bar ul > li:not(.name):focus {
 	background: none;
@@ -352,6 +384,24 @@ p { font-size:16px; }
 	background:$dark;
 	position: fixed;
 	z-index: 100;
+}
+
+.js .home .primary-nav, .js.admin-bar .primary-nav {
+	top: -500px;
+	opacity: 0;
+	transition: opacity 2s, top 1s;
+	-moz-transition: opacity 2s, top 1s; /* Firefox 4 */
+	-webkit-transition: opacity 2s, top 1s; /* Safari and Chrome */
+	-o-transition: opacity 2s, top 1s; /* Opera */
+}
+
+.js .home .primary-nav.armed {
+	opacity: 1;
+	top:0;
+}
+
+.js .admin-bar.home .primary-nav.armed {
+	top:28px;
 }
 
 p.lead {
@@ -552,6 +602,8 @@ table, table * {
 	border:1px #333 solid;
 	color:#222;
 	top:0;
+
+	@include transition(all, 1s);
 	
 	span {
 		border-radius: 100%;
@@ -573,6 +625,10 @@ table, table * {
 }
 
 .ring-0.eye {
+	background-color:rgba(0,0,0,1);
+	background-image:url("../images/lid-line.png"), url("../images/lid-line-2.png");
+	background-position:34% 34%, 67% 67%; 
+	background-repeat: no-repeat, no-repeat;
 	border-style:dashed;
 	left:-30%;
 	top:-30%;
@@ -582,33 +638,16 @@ table, table * {
 	-webkit-transform:rotate(45deg);
 	-ms-transform:rotate(45deg);
 	transform:rotate(45deg);
-	z-index:2;
+	z-index:50;
+	transition: background-position 3s, background-color 1s;
+	-moz-transition: background-position 3s, background-color 1s; /* Firefox 4 */
+	-webkit-transition: background-position 3s, background-color 1s; /* Safari and Chrome */
+	-o-transition: background-position 3s, background-color 1s; /* Opera */
 }
 
-.ring-0.eye-2 {
-	border-style:dashed;
-	left:-30%;
-	top:-30%;
-	width:160%;
-	height:160%;
-	border-radius:80% 0;
-	-webkit-transform:rotate(45deg);
-	-ms-transform:rotate(45deg);
-	transform:rotate(45deg);
-	z-index:2;
-}
-
-.ring-0.eye-3 {
-	border-style:dashed;
-	left:-30%;
-	top:-30%;
-	width:160%;
-	height:160%;
-	border-radius:70% 0;
-	-webkit-transform:rotate(45deg);
-	-ms-transform:rotate(45deg);
-	transform:rotate(45deg);
-	z-index:2;
+.ring-0.eye.armed {
+	background-color:rgba(0,0,0,0);
+	background-position:100% 100%, 0% 0%; 
 }
 
 .ring-0a {
@@ -654,7 +693,7 @@ table, table * {
 	margin:0%;
 	position: absolute;
 	z-index:14;
-	-moz-animation:rotation1 180s linear infinite;
+	-moz-animation:rotation1 0.180s linear infinite;
 	-o-animation:rotation1 180s linear infinite;
 	-webkit-animation:rotation1 180s linear infinite;
 	animation:rotation1 180s linear infinite;
@@ -751,6 +790,7 @@ table, table * {
 	span {
 		font-size:12px;
 	}
+	@include transition(all, 1.2s);
 }
 
 .ring-3.hours {
@@ -763,6 +803,7 @@ table, table * {
 	span {
 		font-size:12px;
 	}
+	@include transition(all, 1.4s);
 }
 
 .ring-4.days {
@@ -771,11 +812,10 @@ table, table * {
 	width: 50%;
 	margin:25%;
 	z-index:20;
-
-
 	span {
 		font-size:12px;
 	}
+	@include transition(all, 1.6s);
 }
 
 .ring-5.months {
@@ -804,6 +844,7 @@ table, table * {
 			border-left:1px #333 solid;
 		}
 	}
+	@include transition(all, 2s);
 }
 
 .seconds, .minutes {

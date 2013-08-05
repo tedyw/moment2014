@@ -8,11 +8,10 @@
 					<div class="time ring ring-0 eye-2">
 					</div>	
 					<div class="time ring ring-0 eye">
-						<!-- <div class="time ring ring-0a "></div>
-						<div class="time ring ring-0b "></div>
-						<div class="time ring ring-0c "></div>
-						<div class="time ring ring-0d "></div>
-					-->
+						<div class="focus">
+							<div class="inner">
+							</div>	
+						</div>
 					</div>
 					<div class="planet-container">
 						<div class="time ring ring-0i">
@@ -96,7 +95,7 @@
 							<span class="digit-57">57</span>
 							<span class="digit-58">58</span>
 							<span class="digit-59">59</span>
-							<span class="digit-60 active">60</span>
+							<span class="digit-60">00</span>
 						</div>
 					</div>
 					<div class="time ring ring-2 minutes" data-rotation="0">
@@ -160,7 +159,7 @@
 							<span class="digit-57">57</span>
 							<span class="digit-58">58</span>
 							<span class="digit-59">59</span>
-							<span class="digit-60 active">60</span>
+							<span class="digit-60">00</span>
 						</div>
 					</div>
 					<div class="time ring ring-3 hours" data-rotation="0">
@@ -188,7 +187,7 @@
 							<span class="digit-21">21</span>
 							<span class="digit-22">22</span>
 							<span class="digit-23">23</span>
-							<span class="digit-24 active">24</span>
+							<span class="digit-24">00</span>
 						</div>
 					</div>
 					<div class="time ring ring-4 days" data-rotation="0">
@@ -223,7 +222,7 @@
 							<span class="digit-28">28</span>
 							<span class="digit-29">29</span>
 							<span class="digit-30">30</span>
-							<span class="digit-31 active">31</span>
+							<span class="digit-31">00</span>
 						</div>
 					</div>
 					<div class="time ring ring-5 months" data-rotation="0">
@@ -239,7 +238,7 @@
 							<span class="digit-9">09</span>
 							<span class="digit-10">10</span>
 							<span class="digit-11">11</span>
-							<span class="digit-12 active">12</span>
+							<span class="digit-12">00</span>
 						</div>
 					</div>
 				</div>

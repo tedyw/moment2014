@@ -11,6 +11,7 @@
 get_header(); ?>
 
 <?php if(is_front_page()): ?>
+	<div class="frontoverlay"></div>
 	<?php get_template_part("timer"); ?>
 <?php endif; ?>
 <?php get_template_part("content", "scroller"); ?>

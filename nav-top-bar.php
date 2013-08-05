@@ -17,7 +17,7 @@
                     <hgroup class="twelve columns">
                     <nav class="top-bar">
                         <ul class="iconmenu">
-                            <li class="site-title">Moment</li>
+                            <li class="site-title"><a href="<?php echo bloginfo("url"); ?>">Moment</a></li>
                             <li><div aria-hidden="true" class="menu-logo"></div></li>
                             <li class="toggle-topbar"><a href="#"></a></li>
                         </ul>
