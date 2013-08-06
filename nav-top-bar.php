@@ -23,11 +23,11 @@
                         </ul>
                         <section>    
                         <ul class="iconmenu socialicons">
-                            <li><div aria-hidden="true" class="icon-facebook"></div></li>
-                            <li><div aria-hidden="true" class="icon-vimeo"></div></li>
-                            <li><div aria-hidden="true" class="icon-instagram"></div></li>
-                            <li><div aria-hidden="true" class="icon-twitter"></div></li>
-                            <li><div aria-hidden="true" class="icon-mail"></div></li>
+                            <li><a href="http://facebook.com" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
+                            <li><a href="http://vimeo.com" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
+                            <li><a href="http://instagr.am" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
+                            <li><a href="http://twitter.com" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
+                            <li><a href="#third" title="Kontakt"><div aria-hidden="true" class="icon-mail"></div></a></li>
                         </ul>  
                         </section>
                     <section>

@@ -1,17 +1,21 @@
-<div class="screen screen-1">
+<div class="screen screen-1 screen-timer">
 	<div class="inner" >
 		<div class="row">
 			<div class="columns twelve">
 				<div class="time-container">
+					<div class="focus">
+						<div class="init">
+							Moment 2014
+						</div>
+						<div class="small-timer">
+							00:00:00
+						</div>	
+					</div>
 					<div class="time ring ring-0 eye-3">
 					</div>
 					<div class="time ring ring-0 eye-2">
 					</div>	
 					<div class="time ring ring-0 eye">
-						<div class="focus">
-							<div class="inner">
-							</div>	
-						</div>
 					</div>
 					<div class="planet-container">
 						<div class="time ring ring-0i">

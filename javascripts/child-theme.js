@@ -3,13 +3,71 @@
  */
 (function($) {
 
+	// requestAnimationFrame() shim by Paul Irish
+	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+	window.requestAnimFrame = (function() {
+		return window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		window.oRequestAnimationFrame ||
+		window.msRequestAnimationFrame ||
+		function(/* function */ callback, /* DOMElement */ element){
+		window.setTimeout(callback, 1000 / 60);
+		};
+	})();
+
+	/**
+	* Behaves the same as setTimeout except uses requestAnimationFrame() where possible for better performance
+	* @param {function} fn The callback function
+	* @param {int} delay The delay in milliseconds
+	*/
+	 
+		window.requestTimeout = function(fn, delay) {
+		if( !window.requestAnimationFrame &&
+		!window.webkitRequestAnimationFrame &&
+		!(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && // Firefox 5 ships without cancel support
+		!window.oRequestAnimationFrame &&
+		!window.msRequestAnimationFrame)
+		return window.setTimeout(fn, delay);
+		var start = new Date().getTime(),
+		handle = new Object();
+		function loop(){
+		var current = new Date().getTime(),
+		delta = current - start;
+		delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
+		};
+		handle.value = requestAnimFrame(loop);
+		return handle;
+		};
+		 
+		/**
+		* Behaves the same as clearTimeout except uses cancelRequestAnimationFrame() where possible for better performance
+		* @param {int|object} fn The callback function
+		*/
+		window.clearRequestTimeout = function(handle) {
+		window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+		window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+		window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+		window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+		window.oCancelRequestAnimationFrame	? window.oCancelRequestAnimationFrame(handle.value) :
+		window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+		clearTimeout(handle);
+	};
+
 	var // Rotation degrees for each dial (sec,min,hours,days,months).
 		$rs = 6,
 		$rmin = 6,
 		$rh = 15,
 		$rd = 11.61290323,
-		$rm = 30;
+		$rm = 30,
 		$i = 0;
+		$i2 = 0;
+
+	var	$datestring = "02/10/2014 10:00:00"; //Destination date.
+
+	function activateHint(){
+		$(".hint").addClass("armed");
+	}
 
 	function activateMenu(){
 		$(".primary-nav").addClass("armed");
@@ -19,12 +77,17 @@
 		$(".frontoverlay").addClass("armed");
 	}
 
+	function activateCoverContent(){
+		$(".frontoverlay .inner").addClass("armed");
+	}
+
 	function openLid(){
 		$(".ring-0.eye").addClass("armed");
 	}
 
 	function closeLid(){
 		$(".ring-0.eye").removeClass("armed");
+		$(".time-container .focus").addClass("armed");
 	}
 
 	function removeCover(){
@@ -32,11 +95,20 @@
 	}
 
 	function deployIcons(){
-		icons = $(".primary-nav li").length;
+		var icons = $(".socialicons li").length;
 		if ((icons - $i) >= 0){
-			$(".primary-nav li").eq($i).addClass("armed");
+			$(".socialicons li").eq($i).addClass("armed");
 			$i++;
-			setTimeout(deployIcons, 200);
+			requestTimeout(deployIcons, 250);
+		}
+	}
+
+	function deployMenuItems(){
+		var items = $(".top-bar .menu-item").length;
+		if ((items - $i2) >= 0){
+			$(".top-bar .menu-item").eq($i2).addClass("armed");
+			$i2++;
+			requestTimeout(deployMenuItems, 400);
 		}
 	}
 
@@ -44,7 +116,7 @@
 	function calculateDate(){
 		// Set dates
 		var currentdate = new Date(),
-		futureDate = new Date("02/03/2014 10:00:00");
+		futureDate = new Date($datestring);
 		numMonths = new Date(currentdate.getFullYear(), currentdate.getMonth() + 1, 0).getDate(); 
 	
 		// Get the date difference in ticks 
@@ -92,69 +164,113 @@
 		$(".months span").eq(months-1).addClass("active"); 
 	}
 
-	function startCountdown() {
+	function startFocusCountdown() {
+		if (Math.floor(seconds) >= 1){
+			seconds--;
 
-		seconds--;
-
-		if (seconds <= 0){
-
-			if (minutes <= 0){
-
-				if (hours <= 0){
-					
-					if(days <= 0){
-
-						days = 31;
-						months--;
-						rotate($rm,$(".months"));
-						$(".months span").removeClass("active");
-						$(".months span").eq(months-1).addClass("active");
-					}
-
-					hours = 24;
-					days--;
-					rotate($rd,$(".days"));
-					$(".days span").removeClass("active");
-					$(".days span").eq(days-1).addClass("active");
-				}
-
-				minutes = 60;
-				hours--;				
-				rotate($rh,$(".hours"));
-				$(".hours span").removeClass("active");
-				$(".hours span").eq(hours-1).addClass("active");
+			if (seconds < 10){
+				var translated = "0" + seconds;
+			} else {
+				var translated = seconds;
 			}
 
-			seconds = 60;
-			minutes--;
-			rotate($rmin,$(".minutes"));
-			$(".minutes span").removeClass("active");
-			$(".minutes span").eq(minutes-1).addClass("active");
+			$(".small-timer").text("00:00:" + translated);
+			requestTimeout(startFocusCountdown, 1000);
+		} else {
+			// Space for event.
 		}
+	}
 
-		rotate($rs,$(".seconds"));
-		$(".seconds span").removeClass("active");
-		$(".seconds span").eq(seconds-1).addClass("active");
+	function startCountdown() {
 
-		setTimeout(startCountdown, 1000);
+		var currentdate = new Date(),
+			futureDate = new Date($datestring),
+			difference = (futureDate - currentdate)/1000; 
+
+		if (Math.floor(difference) <= 60){
+			closeLid();
+			startFocusCountdown();
+		} else {	
+
+			seconds--;
+
+			if (seconds <= 0){
+
+				if (minutes <= 0){
+
+					if (hours <= 0){
+						
+						if(days <= 0){
+
+							days = 31;
+							months--;
+							rotate($rm,$(".months"));
+							$(".months span").removeClass("active");
+							$(".months span").eq(months-1).addClass("active");
+						}
+
+						hours = 24;
+						days--;
+						rotate($rd,$(".days"));
+						$(".days span").removeClass("active");
+						$(".days span").eq(days-1).addClass("active");
+					}
+
+					minutes = 60;
+					hours--;				
+					rotate($rh,$(".hours"));
+					$(".hours span").removeClass("active");
+					$(".hours span").eq(hours-1).addClass("active");
+				}
+
+				seconds = 60;
+				minutes--;
+				rotate($rmin,$(".minutes"));
+				$(".minutes span").removeClass("active");
+				$(".minutes span").eq(minutes-1).addClass("active");
+			}
+
+			rotate($rs,$(".seconds"));
+			$(".seconds span").removeClass("active");
+			$(".seconds span").eq(seconds-1).addClass("active");
+
+			requestTimeout(startCountdown, 1000);
+		}
 	}
 
     $(window).load(function(){
-    	$(".primary-nav").removeClass("armed");
-    	setTimeout(activateCover, 1400);
-    	setTimeout(removeCover, 3000);
-    	setTimeout(openLid, 1500);
-    	setTimeout(closeLid, 5000);
-    	setTimeout(initCountdown, 2500);
-    	setTimeout(startCountdown, 2500);
-    	setTimeout(activateMenu, 3500);
-    	setTimeout(deployIcons, 3700);
+    	requestTimeout(activateCoverContent, 100);
+    	requestTimeout(activateCover, 1400);
+    	requestTimeout(removeCover, 3000);
+    	requestTimeout(openLid, 1500);
+    	requestTimeout(initCountdown, 2500);
+    	requestTimeout(startCountdown, 2500);
+    	requestTimeout(activateMenu, 3500);
+    	requestTimeout(deployIcons, 4700);
+    	requestTimeout(deployMenuItems, 6200);
+    	requestTimeout(activateHint, 7700);
+    	$(".follower").addClass("armed");
     });
 
     $(window).resize(function(){
     });
 
     $(window).scroll(function(){
+    	if ($(window).scrollTop() >= $(window).height()*0.7 && $(window).scrollTop() <= $(window).height()*1.6){
+    		$(".hint").removeClass("armed");
+    		$(".hint").removeClass("end");
+    		$(".follower").addClass("fixed");
+    		$(".follower").removeClass("end");
+    	} else {
+
+    		if($(window).scrollTop() > $(window).height()*1.6){
+    			$(".follower").addClass("end");
+    			$(".hint").addClass("end");
+    		}
+
+    		$(".follower").removeClass("fixed");
+    		$(".hint").addClass("armed");
+    	}
     });
 
 }(jQuery));

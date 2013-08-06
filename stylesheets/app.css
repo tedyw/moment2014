@@ -176,7 +176,11 @@ article:first-child {
 article:last-child {
   border-bottom: none; }
 
+.frontoverlay {
+  display: none; }
+
 .js .frontoverlay {
+  display: table;
   background: black;
   width: 100%;
   height: 100%;
@@ -190,6 +194,73 @@ article:last-child {
   /* Safari and Chrome */
   -o-transition: opacity 2s;
   /* Opera */ }
+  .js .frontoverlay .loader {
+    margin: 40px auto;
+    position: relative;
+    width: 45px;
+    height: 45px; }
+  .js .frontoverlay .loading-logo {
+    background-size: 60% 60%;
+    background-position: 45% 50%;
+    background-color: #e5e5e5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5; }
+  .js .frontoverlay .gear-container {
+    -moz-animation: rotation2 5s linear infinite;
+    -o-animation: rotation2 5s linear infinite;
+    -webkit-animation: rotation2 5s linear infinite;
+    animation: rotation2 5s linear infinite;
+    left: -5px;
+    top: -5px;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    background: white;
+    border-radius: 500px; }
+  .js .frontoverlay .gear {
+    left: 5px;
+    top: 5px;
+    position: absolute;
+    background: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 2px; }
+  .js .frontoverlay .gear-1 {
+    z-index: 1;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  .js .frontoverlay .gear-2 {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+    z-index: 2; }
+  .js .frontoverlay .gear-3 {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+    z-index: 3; }
+  .js .frontoverlay .inner {
+    transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    /* Firefox 4 */
+    -webkit-transition: opacity 1s;
+    /* Safari and Chrome */
+    -o-transition: opacity 1s;
+    /* Opera */
+    opacity: 1;
+    display: table-cell;
+    letter-spacing: 1em;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 2em; }
+    .js .frontoverlay .inner span {
+      margin-left: 1em; }
+  .js .frontoverlay .inner.armed {
+    opacity: 0; }
 
 .js .frontoverlay.armed {
   opacity: 0; }
@@ -238,6 +309,7 @@ article:last-child {
     font-size: 20px;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
   .main-image-container span {
+    left: 0;
     position: absolute;
     width: 100%;
     top: 50%;
@@ -286,6 +358,22 @@ p {
       text-align: center;
       margin: 30px auto; } }
 
+.home {
+  top: 0; }
+
+.js .home .top-bar .menu-item {
+  opacity: 0;
+  transition: all 1s;
+  -moz-transition: all 1s;
+  /* Firefox 4 */
+  -webkit-transition: all 1s;
+  /* Safari and Chrome */
+  -o-transition: all 1s;
+  /* Opera */ }
+
+.js .home .top-bar .menu-item.armed {
+  opacity: 1; }
+
 .js .home .socialicons li {
   opacity: 0;
   -webkit-transform: rotate(90deg);
@@ -304,6 +392,25 @@ p {
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg); }
+
+.socialicons li div {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  /* Firefox 4 */
+  -webkit-transition: all 0.2s;
+  /* Safari and Chrome */
+  -o-transition: all 0.2s;
+  /* Opera */ }
+
+.socialicons li:hover div {
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+  border-color: #156fca;
+  color: #156fca; }
 
 .top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active, .top-bar ul > li:not(.name):focus {
   background: none; }
@@ -414,11 +521,18 @@ p.lead {
 .page-template-scroller-php article:last-child {
   border-bottom: 1px dashed #333; }
 
+.page-template-page-timer-php {
+  top: 0; }
+  .page-template-page-timer-php .primary-nav {
+    display: none; }
+  .page-template-page-timer-php .start-footer {
+    display: none; }
+
 .menu-logo {
   height: 45px;
   width: 45px;
   margin: 0;
-  margin-right: 15px;
+  margin-right: 30px;
   background-color: white;
   background-image: url("../images/logo-invert.svg");
   background-repeat: no-repeat;
@@ -459,6 +573,12 @@ p.lead {
     text-transform: uppercase;
     font-size: 12px; }
 
+#supplementary .widget {
+  margin-bottom: 20px; }
+#supplementary .widget-title {
+  margin-top: 0;
+  text-align: left; }
+
 aside ul {
   list-style-type: none;
   margin-left: 0 !important; }
@@ -493,6 +613,113 @@ table, table * {
     .circle .hero {
       font-size: 24px; } }
 
+.tree {
+  background: url("../images/tree.svg");
+  background-size: 1100px auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+.hint {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: white;
+  color: black;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 500px 500px 0 500px;
+  left: 50%;
+  margin-left: -50px;
+  -webkit-transition: top 1s, opacity 1s;
+  -moz-transition: top 1s, opacity 1s;
+  -ms-transition: top 1s, opacity 1s;
+  -o-transition: top 1s, opacity 1s;
+  transition: top 1s, opacity 1s;
+  top: -200px;
+  text-transform: uppercase; }
+  .hint .inner {
+    font-size: 12px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+
+.hint.armed {
+  opacity: 1;
+  top: 90%; }
+
+.follower {
+  opacity: 0;
+  border-radius: 500px;
+  display: table;
+  width: 100px;
+  height: 100px;
+  background: black;
+  border: 1px dashed #333;
+  position: absolute;
+  top: 0%;
+  margin-top: 0;
+  left: 50%;
+  margin-left: -50px;
+  transition: opacity 1s, margin-top 0.2s, margin-left 0.2s, width 0.2s, height 0.2s;
+  -moz-transition: opacity 1s, margin-top 0.2s, margin-left 0.2s, width 0.2s, height 0.2s;
+  /* Firefox 4 */
+  -webkit-transition: opacity 1s, margin-top 0.2s, margin-left 0.2s, width 0.2s, height 0.2s;
+  /* Safari and Chrome */
+  -o-transition: opacity 1s, margin-top 0.2s, margin-left 0.2s, width 0.2s, height 0.2s;
+  /* Opera */ }
+  .follower .inner {
+    vertical-align: middle;
+    display: table-inner; }
+
+.follower.armed {
+  opacity: 1;
+  margin-top: -50px;
+  text-align: center; }
+  .follower.armed span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 200;
+    font-size: 12px;
+    padding: 45px 0;
+    color: white;
+    opacity: 1;
+    text-transform: uppercase; }
+  .follower.armed span.last {
+    opacity: 0; }
+
+.follower.fixed {
+  background: white;
+  border: none;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  margin-left: -5px;
+  position: fixed; }
+  .follower.fixed span {
+    opacity: 0; }
+
+.follower.end {
+  top: 100%;
+  margin-top: -100px; }
+  .follower.end span.first {
+    opacity: 0; }
+  .follower.end span.last {
+    opacity: 1; }
+
+.screen-timer {
+  height: 100%;
+  margin-bottom: 10%; }
+
 .time-container {
   width: 480px;
   height: 480px;
@@ -502,6 +729,48 @@ table, table * {
     .time-container {
       width: 360px;
       height: 360px; } }
+  .time-container .focus {
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    margin-top: -0.5em;
+    z-index: 51;
+    text-transform: uppercase;
+    letter-spacing: 1.5em; }
+    .time-container .focus .init {
+      opacity: 1;
+      position: relative;
+      margin-left: 1.5em;
+      transition: all 1s;
+      -moz-transition: all 1s;
+      /* Firefox 4 */
+      -webkit-transition: all 1s;
+      /* Safari and Chrome */
+      -o-transition: all 1s;
+      /* Opera */ }
+    .time-container .focus .small-timer {
+      font: 40px Monaco, MonoSpace;
+      font-weight: bold;
+      letter-spacing: -0em;
+      position: relative;
+      opacity: 0;
+      top: 1em;
+      transition: all 1s;
+      -moz-transition: all 1s;
+      /* Firefox 4 */
+      -webkit-transition: all 1s;
+      /* Safari and Chrome */
+      -o-transition: all 1s;
+      /* Opera */ }
+  .time-container .focus.armed .init {
+    top: -1em;
+    margin-top: -2.5em;
+    opacity: 0; }
+  .time-container .focus.armed .small-timer {
+    top: 0;
+    opacity: 1; }
 
 .ring {
   position: absolute;
@@ -567,41 +836,29 @@ table, table * {
   background-color: rgba(0, 0, 0, 0);
   background-position: 100% 100%, 0% 0%; }
 
-.ring-0a {
-  border-style: solid;
-  left: 1%;
-  top: 1%;
-  width: 98%;
-  height: 98%;
-  border-radius: 90%;
-  z-index: -1; }
-
-.ring-0b {
-  border-style: solid;
-  left: 5%;
-  top: 5%;
-  width: 90%;
-  height: 90%;
-  border-radius: 90%;
-  z-index: -1; }
-
-.ring-0c {
-  left: 10%;
-  top: 10%;
+.ring-0.eye-2 {
   border-style: dashed;
-  width: 80%;
-  height: 80%;
-  border-radius: 90%;
-  z-index: -1; }
+  left: -30%;
+  top: -30%;
+  width: 160%;
+  height: 160%;
+  border-radius: 80% 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2; }
 
-.ring-0d {
-  left: 15%;
-  top: 15%;
+.ring-0.eye-3 {
   border-style: dashed;
-  width: 70%;
-  height: 70%;
-  border-radius: 90%;
-  z-index: -1; }
+  left: -30%;
+  top: -30%;
+  width: 160%;
+  height: 160%;
+  border-radius: 70% 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2; }
 
 .planet-container {
   height: 100%;
