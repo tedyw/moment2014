@@ -23,7 +23,6 @@
 	</div>
 	<div class="shuttle">
 		<div class="rotator"></div>
-		<div class="follower-2"></div>
 	</div>
 	<div class="wing-container">
 		<div class="leftwing"></div>
@@ -31,4 +30,5 @@
 		<div class="leftjet"></div>
 		<div class="rightjet"></div>
 	</div>
+	<div class="follower-2"></div>
 </div>	

@@ -84,13 +84,17 @@ function required_starter_scripts() {
 	 * Remove if you don't need this file,
 	 * it's empty by default.
 	 */
-	wp_enqueue_script(
-		'child-theme-js',
-		get_stylesheet_directory_uri() . '/javascripts/child-theme.js',
+	wp_register_script(
+		'machine-js',
+		get_stylesheet_directory_uri() . '/javascripts/machine.min.js',
 		array( 'theme-js' ),
 		required_get_theme_version( false ),
 		true
 	);
+
+	if ( is_front_page() || is_page_template('timer.php') || is_page_template('maintenance.php') ) {
+    	wp_enqueue_script('machine-js');
+  	}
 
 	/**
 	 * Registers the app.css
