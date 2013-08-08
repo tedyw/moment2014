@@ -30,11 +30,10 @@ get_header(); ?>
 		</div>
 	</div>	
 	<?php get_template_part("timer"); ?>
-	<div class="tree hide-for-small">
-		<div class="follower hide-for-small">
+	<div id="#thetree" class="tree hide-for-small">
+		<div class="follower-1 hide-for-small">
 			<div class="inner">
 				<span class="first">Din framtid</span>
-				<span class="last">Finns här</span>
 			</div>	
 		</div>
 	</div>	

@@ -25,7 +25,7 @@
 							<p>2013 &copy Moment.</p>
 							<a href="http://codeorig.in/" title="Tedy Warsitha" class="brand-link">
 							<div class="brand">
-								<p class="theme">Oculus</p>
+								<p class="theme">Machinam</p>
 								<div class="promotion"></div>
 								<p>Designad av Tedy Warsitha.</p>
 							</div>

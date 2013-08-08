@@ -26,6 +26,9 @@
 </div>
 
 <?php endwhile; // end of the loop. ?>
+<?php if(is_front_page()): ?>
+	<?php get_template_part("shuttle"); ?>
+<?php endif; ?>
 
 <?php $parent = $post->ID; ?>
 <?php $parent_name = $post->post_name; ?>

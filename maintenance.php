@@ -4,7 +4,7 @@
  * @package required+ Foundation
  * @since required+ Foundation 0.3.0
  *
- * Template Name: Timer
+ * Template Name: Maintenance
  *
  */
 
@@ -24,5 +24,8 @@ get_header(); ?>
 	</div>
 
 <?php get_template_part("timer"); ?>
+<div class="maintenance">
+	Vi är snart igång igen!
+</div>
 
 <?php get_footer(); ?>

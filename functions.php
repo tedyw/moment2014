@@ -92,14 +92,6 @@ function required_starter_scripts() {
 		true
 	);
 
-	wp_enqueue_script(
-		'countdown-js',
-		get_stylesheet_directory_uri() . '/javascripts/jquery.countdown.js',
-		array( 'theme-js' ),
-		required_get_theme_version( false ),
-		true
-	);
-
 	/**
 	 * Registers the app.css
 	 *

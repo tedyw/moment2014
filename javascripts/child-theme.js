@@ -54,223 +54,254 @@
 		clearTimeout(handle);
 	};
 
-	var // Rotation degrees for each dial (sec,min,hours,days,months).
-		$rs = 6,
-		$rmin = 6,
-		$rh = 15,
-		$rd = 11.61290323,
-		$rm = 30,
-		$i = 0;
-		$i2 = 0;
+	machine = function(){
 
-	var	$datestring = "02/10/2014 10:00:00"; //Destination date.
+		var // Rotation degrees for each dial (sec,min,hours,days,months).
+			$rs = 6,
+			$rmin = 6,
+			$rh = 15,
+			$rd = 11.61290323,
+			$rm = 30,
+			$i = 0;
+			$i2 = 0;
 
-	function activateHint(){
-		$(".hint").addClass("armed");
-	}
+		var	$datestring = "01/30/2014 10:00:00"; //Destination date.
 
-	function activateMenu(){
-		$(".primary-nav").addClass("armed");
-	}
+		$(window).bind("sroll", function(){  
+ 
+			if ($(window).scrollTop() >= ($(".voyage").offset().top) - $(window).height()){
+	    			$(".shuttle-fog").addClass("armed");
+	    	} else {
+	    		$(".shuttle-fog").removeClass("armed");
+	    	}
 
-	function activateCover(){
-		$(".frontoverlay").addClass("armed");
-	}
+	    	if ($(window).scrollTop() >= ($(".voyage").offset().top) - $(window).height()*0.5){
+	    			$(".shuttle").addClass("armed");
+	    			$(".wing-container").addClass("armed");
+	    	} else {
+	    		$(".shuttle").removeClass("armed");
+	    		$(".wing-container").removeClass("armed");
+	    	}
 
-	function activateCoverContent(){
-		$(".frontoverlay .inner").addClass("armed");
-	}
+	    	if ($(window).scrollTop() >= $(window).height()*0.5){
+	    		$(".hint").removeClass("armed");
+	    	} else {
+	    		$(".hint").addClass("armed");
+	    	}
 
-	function openLid(){
-		$(".ring-0.eye").addClass("armed");
-	}
+	    	if ($(window).scrollTop() >= ($(".tree").offset().top - $(window).height()*0.5)
+	    		&& $(window).scrollTop() < ($(".tree").offset().top + $(window).height()*0.5)){
+	    		$(".follower-1").addClass("fixed");
 
-	function closeLid(){
-		$(".ring-0.eye").removeClass("armed");
-		$(".time-container .focus").addClass("armed");
-	}
+	    	} else {
+	    		
+	    		$(".follower-1").removeClass("fixed");
+	    	}
 
-	function removeCover(){
-		$(".frontoverlay").remove();
-	}
+	    	if ($(window).scrollTop() >= ($(".tree").offset().top + $(window).height()*0.25)){
+	    			$(".follower-1").addClass("end");
+	    	} else {
+	    		$(".follower-1").removeClass("end");
+	    	}
 
-	function deployIcons(){
-		var icons = $(".socialicons li").length;
-		if ((icons - $i) >= 0){
-			$(".socialicons li").eq($i).addClass("armed");
-			$i++;
-			requestTimeout(deployIcons, 250);
+    	}); 	
+
+		function activateHint(){
+			$(".hint").addClass("armed");
 		}
-	}
 
-	function deployMenuItems(){
-		var items = $(".top-bar .menu-item").length;
-		if ((items - $i2) >= 0){
-			$(".top-bar .menu-item").eq($i2).addClass("armed");
-			$i2++;
-			requestTimeout(deployMenuItems, 400);
+		function activateMenu(){
+			$(".primary-nav").addClass("armed");
 		}
-	}
+
+		function activateCover(){
+			$(".frontoverlay").addClass("armed");
+		}
+
+		function activateCoverContent(){
+			$(".frontoverlay .inner").addClass("armed");
+		}
+
+		function openLid(){
+			$(".ring-0.eye").addClass("armed");
+		}
+
+		function closeLid(){
+			$(".ring-0.eye").removeClass("armed");
+			$(".time-container .focus").addClass("armed");
+		}
+
+		function removeCover(){
+			$(".frontoverlay").remove();
+		}
+
+		function deployIcons(){
+			var icons = $(".socialicons li").length;
+			if ((icons - $i) >= 0){
+				$(".socialicons li").eq($i).addClass("armed");
+				$i++;
+				requestTimeout(deployIcons, 250);
+			}
+		}
+
+		function deployMenuItems(){
+			var items = $(".top-bar .menu-item").length;
+			if ((items - $i2) >= 0){
+				$(".top-bar .menu-item").eq($i2).addClass("armed");
+				$i2++;
+				requestTimeout(deployMenuItems, 400);
+			}
+		}
 
 
-	function calculateDate(){
-		// Set dates
-		var currentdate = new Date(),
-		futureDate = new Date($datestring);
-		numMonths = new Date(currentdate.getFullYear(), currentdate.getMonth() + 1, 0).getDate(); 
-	
-		// Get the date difference in ticks 
-		timeDiff = (futureDate - currentdate)/1000; 
-		months = Math.floor(timeDiff / 86400 / numMonths);
-		days = Math.floor(timeDiff / 86400) % numMonths; 
-		hours = Math.floor(timeDiff / 3600) % 24;
-		minutes = Math.floor(timeDiff / 60) % 60; 
-		seconds = Math.floor(timeDiff % 60);
-	}	
-
-	function rotate(degree, ring, e) {
+		function calculateDate(){
+			// Set dates
+			var currentdate = new Date(),
+			futureDate = new Date($datestring);
+			numMonths = new Date(currentdate.getFullYear(), currentdate.getMonth() + 1, 0).getDate(); 
 		
-		if (e != 0){
-		var r = ring.data('rotation') + degree;
-		} else {
-		var	r = 0 + degree; 
-		}
+			// Get the date difference in ticks 
+			timeDiff = (futureDate - currentdate)/1000; 
+			months = Math.floor(timeDiff / 86400 / numMonths);
+			days = Math.floor(timeDiff / 86400) % numMonths; 
+			hours = Math.floor(timeDiff / 3600) % 24;
+			minutes = Math.floor(timeDiff / 60) % 60; 
+			seconds = Math.floor(timeDiff % 60);
+		}	
 
-	    ring.css({
-	                '-webkit-transform': 'rotate(' + r + 'deg)',
-	                '-moz-transform': 'rotate(' + r + 'deg)',
-	                '-ms-transform': 'rotate(' + r + 'deg)',
-	                '-o-transform': 'rotate(' + r + 'deg)',
-	                'transform': 'rotate(' + r + 'deg)',
-	                'zoom': 1
-	    }).data('rotation', r);
-	}
-
-	function initCountdown() {
-
-		calculateDate();
-
-		rotate(-$rs*seconds,$(".seconds"),0);
-		rotate(-$rmin*minutes,$(".minutes"),0);
-		rotate(-$rh*hours,$(".hours"),0);
-		rotate(-$rd*days,$(".days"),0);
-		rotate(-$rm*months,$(".months"),0);
-
-		$(".time span").removeClass("active");
-		$(".seconds span").eq(seconds-1).addClass("active"); 
-		$(".minutes span").eq(minutes-1).addClass("active"); 
-		$(".hours span").eq(hours-1).addClass("active"); 
-		$(".days span").eq(days-1).addClass("active"); 
-		$(".months span").eq(months-1).addClass("active"); 
-	}
-
-	function startFocusCountdown() {
-		if (Math.floor(seconds) >= 1){
-			seconds--;
-
-			if (seconds < 10){
-				var translated = "0" + seconds;
+		function rotate(degree, ring, e) {
+			
+			if (e != 0){
+			var r = ring.data('rotation') + degree;
 			} else {
-				var translated = seconds;
+			var	r = 0 + degree; 
 			}
 
-			$(".small-timer").text("00:00:" + translated);
-			requestTimeout(startFocusCountdown, 1000);
-		} else {
-			// Space for event.
+		    ring.css({
+		                '-webkit-transform': 'rotate(' + r + 'deg)',
+		                '-moz-transform': 'rotate(' + r + 'deg)',
+		                '-ms-transform': 'rotate(' + r + 'deg)',
+		                '-o-transform': 'rotate(' + r + 'deg)',
+		                'transform': 'rotate(' + r + 'deg)',
+		                'zoom': 1
+		    }).data('rotation', r);
 		}
-	}
 
-	function startCountdown() {
+		function initCountdown() {
 
-		var currentdate = new Date(),
-			futureDate = new Date($datestring),
-			difference = (futureDate - currentdate)/1000; 
+			calculateDate();
 
-		if (Math.floor(difference) <= 60){
-			closeLid();
-			startFocusCountdown();
-		} else {	
+			rotate(-$rs*seconds,$(".seconds"),0);
+			rotate(-$rmin*minutes,$(".minutes"),0);
+			rotate(-$rh*hours,$(".hours"),0);
+			rotate(-$rd*days,$(".days"),0);
+			rotate(-$rm*months,$(".months"),0);
 
-			seconds--;
+			$(".time span").removeClass("active");
+			$(".seconds span").eq(seconds-1).addClass("active"); 
+			$(".minutes span").eq(minutes-1).addClass("active"); 
+			$(".hours span").eq(hours-1).addClass("active"); 
+			$(".days span").eq(days-1).addClass("active"); 
+			$(".months span").eq(months-1).addClass("active"); 
+		}
 
-			if (seconds <= 0){
+		function startFocusCountdown() {
+			if (Math.floor(seconds) >= 1){
+				seconds--;
 
-				if (minutes <= 0){
-
-					if (hours <= 0){
-						
-						if(days <= 0){
-
-							days = 31;
-							months--;
-							rotate($rm,$(".months"));
-							$(".months span").removeClass("active");
-							$(".months span").eq(months-1).addClass("active");
-						}
-
-						hours = 24;
-						days--;
-						rotate($rd,$(".days"));
-						$(".days span").removeClass("active");
-						$(".days span").eq(days-1).addClass("active");
-					}
-
-					minutes = 60;
-					hours--;				
-					rotate($rh,$(".hours"));
-					$(".hours span").removeClass("active");
-					$(".hours span").eq(hours-1).addClass("active");
+				if (seconds < 10){
+					var translated = "0" + seconds;
+				} else {
+					var translated = seconds;
 				}
 
-				seconds = 60;
-				minutes--;
-				rotate($rmin,$(".minutes"));
-				$(".minutes span").removeClass("active");
-				$(".minutes span").eq(minutes-1).addClass("active");
+				$(".small-timer").text("00:00:" + translated);
+				requestTimeout(startFocusCountdown, 1000);
+			} else {
+				// Space for event.
 			}
-
-			rotate($rs,$(".seconds"));
-			$(".seconds span").removeClass("active");
-			$(".seconds span").eq(seconds-1).addClass("active");
-
-			requestTimeout(startCountdown, 1000);
 		}
-	}
+
+		function startCountdown() {
+
+			var currentdate = new Date(),
+				futureDate = new Date($datestring),
+				difference = (futureDate - currentdate)/1000; 
+
+			if (Math.floor(difference) <= 60){
+				closeLid();
+				startFocusCountdown();
+			} else {	
+
+				seconds--;
+
+				if (seconds <= 0){
+
+					if (minutes <= 0){
+
+						if (hours <= 0){
+							
+							if(days <= 0){
+
+								days = 31;
+								months--;
+								rotate($rm,$(".months"));
+								$(".months span").removeClass("active");
+								$(".months span").eq(months-1).addClass("active");
+							}
+
+							hours = 24;
+							days--;
+							rotate($rd,$(".days"));
+							$(".days span").removeClass("active");
+							$(".days span").eq(days-1).addClass("active");
+						}
+
+						minutes = 60;
+						hours--;				
+						rotate($rh,$(".hours"));
+						$(".hours span").removeClass("active");
+						$(".hours span").eq(hours-1).addClass("active");
+					}
+
+					seconds = 60;
+					minutes--;
+					rotate($rmin,$(".minutes"));
+					$(".minutes span").removeClass("active");
+					$(".minutes span").eq(minutes-1).addClass("active");
+				}
+
+				rotate($rs,$(".seconds"));
+				$(".seconds span").removeClass("active");
+				$(".seconds span").eq(seconds-1).addClass("active");
+
+				requestTimeout(startCountdown, 1000);
+			}
+		}
+
+		function init() {
+			requestTimeout(activateCoverContent, 100);
+	    	requestTimeout(activateCover, 1400);
+	    	requestTimeout(removeCover, 3000);
+	    	requestTimeout(openLid, 1500);
+	    	requestTimeout(initCountdown, 2500);
+	    	requestTimeout(startCountdown, 2500);
+	    	requestTimeout(activateMenu, 3500);
+	    	requestTimeout(deployIcons, 4700);
+	    	requestTimeout(deployMenuItems, 6200);
+	    	requestTimeout(activateHint, 7700);
+	    	$(".follower-1").addClass("armed");
+		}
+	}	
 
     $(window).load(function(){
-    	requestTimeout(activateCoverContent, 100);
-    	requestTimeout(activateCover, 1400);
-    	requestTimeout(removeCover, 3000);
-    	requestTimeout(openLid, 1500);
-    	requestTimeout(initCountdown, 2500);
-    	requestTimeout(startCountdown, 2500);
-    	requestTimeout(activateMenu, 3500);
-    	requestTimeout(deployIcons, 4700);
-    	requestTimeout(deployMenuItems, 6200);
-    	requestTimeout(activateHint, 7700);
-    	$(".follower").addClass("armed");
+    	machine.init();
     });
 
     $(window).resize(function(){
     });
 
     $(window).scroll(function(){
-    	if ($(window).scrollTop() >= $(window).height()*0.7 && $(window).scrollTop() <= $(window).height()*1.6){
-    		$(".hint").removeClass("armed");
-    		$(".hint").removeClass("end");
-    		$(".follower").addClass("fixed");
-    		$(".follower").removeClass("end");
-    	} else {
-
-    		if($(window).scrollTop() > $(window).height()*1.6){
-    			$(".follower").addClass("end");
-    			$(".hint").addClass("end");
-    		}
-
-    		$(".follower").removeClass("fixed");
-    		$(".hint").addClass("armed");
-    	}
     });
 
 }(jQuery));
