@@ -141,7 +141,7 @@ html, body {
 
 body {
   padding-top: 60px;
-  top: 74px;
+  top: 107px;
   font-family: "Open Sans", Helvetica;
   font-weight: 300;
   overflow-x: hidden;
@@ -457,6 +457,27 @@ p {
   position: fixed;
   z-index: 100; }
 
+.primary-nav .magellan-container {
+  display: none;
+  text-align: center; }
+  .primary-nav .magellan-container .magellan-bar ul {
+    margin-bottom: 10px; }
+  .primary-nav .magellan-container .magellan-bar li {
+    text-transform: capitalize;
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 10px; }
+    .primary-nav .magellan-container .magellan-bar li a {
+      color: white; }
+  .primary-nav .magellan-container .magellan-bar li.active a, .primary-nav .magellan-container .magellan-bar li:hover a {
+    color: #156fca; }
+
+.js .primary-nav .magellan-container {
+  display: block; }
+
+.home .primary-nav .magellan-container {
+  display: none; }
+
 .js .home .primary-nav, .js.admin-bar .primary-nav {
   top: -500px;
   opacity: 0;
@@ -582,7 +603,9 @@ p.lead {
 .screen {
   height: 100%;
   width: 100%;
-  display: table; }
+  display: table;
+  padding-top: 120px;
+  margin-top: -120px; }
 
 .screen > .inner {
   display: table-cell;

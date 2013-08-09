@@ -1,6 +1,6 @@
 <?php while ( have_posts() ) : the_post(); ?>			
 
-<div id="<?php echo $post->post_name; ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
+<section data-magellan-destination="<?php the_title(); ?>" id="<?php the_title(); ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
 	<div class="inner">
 		<div class="row">
 			<div <?php post_class("twelve columns"); ?>>
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <?php endwhile; // end of the loop. ?>
 <?php if(is_front_page()): ?>
@@ -38,7 +38,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
  while (have_posts()) : the_post();
 ?>
 
-<div id="<?php echo $post->post_name; ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
+<section data-magellan-destination="<?php echo $post->post_name; ?>" id="<?php echo $post->post_name; ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
 	<div class="inner">
 		<div class="row">
 			<div <?php post_class("twelve columns"); ?>>
@@ -142,6 +142,6 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 		<?php endif; ?>		
 
 	</div>
-</div>
+</section>
 
 <?php endwhile; // end of the loop. ?>			
