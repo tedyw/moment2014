@@ -156,7 +156,19 @@ body {
 	padding-top:0;
 	h1,h2,h3,h4,h5,h6 {
 		color:$light;
+
 		a { color:$light!important;}
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	.subheader {
+		text-transform: uppercase;
+		letter-spacing: 0.5em;
+		margin-left: 0.5em; 
+		color:white; 
 	}
 
 	abbr, acronym { 
@@ -343,6 +355,7 @@ article:last-child {
 		letter-spacing: 1em;
 		font-size: 20px;
 		text-shadow: 0 0 1px rgba(0,0,0,0.1);
+		word-break: break-all;
 	}
 
 	span {
@@ -598,6 +611,11 @@ p.lead {
 	h1,h2,h3,h4,h5,h6 {
 		text-align: center;
 	}
+
+	article {
+		margin:40px auto;
+	}
+
 	article:last-child {
 		border-bottom:1px dashed #333;
 	}
@@ -696,7 +714,7 @@ p.lead {
 
 // SIDEBAR
 
-aside ul {
+aside ul, .widget ul {
 	list-style-type: none;
 	margin-left:0!important;
 }
@@ -723,6 +741,13 @@ table, table * {
 	-moz-border-radius: 0!important;
 	border-radius: 0!important;
 	border:none;
+}
+
+.panel {
+	margin:40px auto;
+	padding:40px;
+	background:black;
+	border:1px dashed #333;
 }
 
 // TREE

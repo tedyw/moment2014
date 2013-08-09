@@ -152,6 +152,13 @@ body {
     color: white; }
     body h1 a, body h2 a, body h3 a, body h4 a, body h5 a, body h6 a {
       color: white !important; }
+  body h2 {
+    font-size: 30px; }
+  body .subheader {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    margin-left: 0.5em;
+    color: white; }
   body abbr, body acronym {
     color: white; }
 
@@ -307,7 +314,8 @@ article:last-child {
     font-weight: 200;
     letter-spacing: 1em;
     font-size: 20px;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    word-break: break-all; }
   .main-image-container span {
     left: 0;
     position: absolute;
@@ -535,6 +543,8 @@ p.lead {
 
 .page-template-scroller-php h1, .page-template-scroller-php h2, .page-template-scroller-php h3, .page-template-scroller-php h4, .page-template-scroller-php h5, .page-template-scroller-php h6 {
   text-align: center; }
+.page-template-scroller-php article {
+  margin: 40px auto; }
 .page-template-scroller-php article:last-child {
   border-bottom: 1px dashed #333; }
 
@@ -607,7 +617,7 @@ p.lead {
   margin-top: 0;
   text-align: left; }
 
-aside ul {
+aside ul, .widget ul {
   list-style-type: none;
   margin-left: 0 !important; }
 
@@ -625,6 +635,12 @@ table, table * {
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
   border: none; }
+
+.panel {
+  margin: 40px auto;
+  padding: 40px;
+  background: black;
+  border: 1px dashed #333; }
 
 .tree {
   background: url("../images/tree.svg");

@@ -288,7 +288,7 @@
     	requestTimeout(activateMenu, 3500);
     	requestTimeout(deployIcons, 4700);
     	requestTimeout(deployMenuItems, 6200);
-    	requestTimeout(activateHint, 7700);
+    	requestTimeout(activateHint, 7200);
     	$(".follower-1").addClass("armed");
 
     	$(window).bind("scroll", function(){  
