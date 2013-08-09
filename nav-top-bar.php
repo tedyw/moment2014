@@ -47,32 +47,33 @@
                         </nav>
                     </div>
                 </hgroup>
+                <?php if(!is_front_page() && !is_search()): ?>
+                    <?php $parent = $post->ID; ?>
+                    <?php $parent_name = $post->post_name; ?>
+                    <?php $parent_title = the_title("","",false); ?>
 
-                <?php $parent = $post->ID; ?>
-                <?php $parent_name = $post->post_name; ?>
-                <?php $parent_title = the_title("","",false); ?>
-
-                <?php
-                $secondary = new WP_Query('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
-                    if($secondary->have_posts()) :
-                ?>
-                <hgroup class="row magellan-container">
-                    <div class="twelve columns">
-                        <nav class="magellan-bar">
-                            <ul data-magellan-expedition>
-                                <li data-magellan-arrival="<?php echo $parent_title ?>"><a href="#<?php echo $parent_title ?>"><?php echo $parent_title ?></a></li>
-                                <?php while($secondary->have_posts()) : $secondary->the_post(); ?>
-                                <li data-magellan-arrival="<?php echo $post->post_name; ?>">
-                                    <a href="#<?php echo $post->post_name; ?>"><?php the_title() ?></a>
-                                </li>
-                                <?php endwhile; wp_reset_postdata(); ?>
-                            </ul>    
-                        </nav>    
-                    </div>    
-                </hgroup>  
-                <?php
-                    endif;
-                ?>  
+                    <?php
+                    $secondary = new WP_Query('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
+                        if($secondary->have_posts()) :
+                    ?>
+                    <hgroup class="row magellan-container">
+                        <div class="twelve columns">
+                            <nav class="magellan-bar">
+                                <ul data-magellan-expedition>
+                                    <li data-magellan-arrival="<?php echo $parent_title ?>"><a href="#<?php echo $parent_title ?>"><?php echo $parent_title ?></a></li>
+                                    <?php while($secondary->have_posts()) : $secondary->the_post(); ?>
+                                    <li data-magellan-arrival="<?php echo $post->post_name; ?>">
+                                        <a href="#<?php echo $post->post_name; ?>"><?php the_title() ?></a>
+                                    </li>
+                                    <?php endwhile; wp_reset_postdata(); ?>
+                                </ul>    
+                            </nav>    
+                        </div>    
+                    </hgroup>  
+                    <?php
+                        endif;
+                    ?> 
+                <?php endif; ?> 
             </header>    
             <!-- </div> -->
             <!-- END: nav-top-bar.php -->
