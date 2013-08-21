@@ -12,21 +12,22 @@
 ?>
             <!-- START: nav-top-bar.php -->
             <!-- <div class="contain-to-grid"> // enable to contain to grid -->
-            <header class="primary-nav">
+            <header id="primary-nav" class="primary-nav">
                 <hgroup class="row">
                     <div class="twelve columns">
-                        <nav class="top-bar">
+                        <nav id="top-bar" class="top-bar">
                             <ul class="iconmenu">
                                 <li class="site-title"><a href="<?php echo bloginfo("url"); ?>">Moment</a></li>
                                 <li><div aria-hidden="true" class="menu-logo"></div></li>
                                 <li class="toggle-topbar"><a href="#"></a></li>
                             </ul>
                             <section>    
-                            <ul class="iconmenu socialicons">
-                                <li><a href="http://facebook.com" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
-                                <li><a href="http://vimeo.com" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
-                                <li><a href="http://instagr.am" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
-                                <li><a href="http://twitter.com" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
+                            <ul id="socialicons" class="iconmenu socialicons">
+                                <li><a href="https://www.facebook.com/moment.maskinsektionen" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
+                                <li><a href="http://vimeo.com/moment" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
+                                <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
+                                <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
+                                <li><a href="#" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
                                 <li><a href="#third" title="Kontakt"><div aria-hidden="true" class="icon-mail"></div></a></li>
                             </ul>  
                             </section>
@@ -47,7 +48,7 @@
                         </nav>
                     </div>
                 </hgroup>
-                <?php if(!is_front_page() && !is_search()): ?>
+                <?php if(!is_search() && !is_404()): ?>
                     <?php $parent = $post->ID; ?>
                     <?php $parent_name = $post->post_name; ?>
                     <?php $parent_title = the_title("","",false); ?>

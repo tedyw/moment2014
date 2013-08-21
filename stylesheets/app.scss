@@ -104,39 +104,27 @@ you can use the generic selector below, but it's slower:
 	margin-right:$gutter;
 	padding:12px;
 }
-.icon-facebook:before {
-	content: "\21";
-}
-.icon-vimeo:before {
-	content: "\22";
-}
 .icon-twitter:before {
-	content: "\23";
-}
-.icon-tumblr:before {
-	content: "\24";
+	content: "\74";
 }
 .icon-instagram:before {
-	content: "\25";
+	content: "\69";
+}
+.icon-facebook:before {
+	content: "\66";
 }
 .icon-feed:before {
-	content: "\26";
+	content: "\72";
 }
-.icon-user:before {
-	content: "\27";
-}
-.icon-location:before {
-	content: "\28";
-}
-.icon-clock:before {
-	content: "\29";
+.icon-vimeo:before {
+	content: "\76";
 }
 .icon-mail:before {
-	content: "\2a";
+	content: "\6d";
 }
-.icon-calendar:before {
-	content: "\2b";
-} 
+.icon-linkedin:before {
+	content: "\6e";
+}
 
 // INIT
 
@@ -482,7 +470,7 @@ p { font-size:16px; }
 	text-transform:uppercase;
 	padding:0;
 	@media only screen and (min-width: 940px){
-	padding-right: $gutter;
+	padding-right: 10px;
 	}
 }
 
@@ -674,9 +662,9 @@ p.lead {
 	height:45px;
 	width:45px;
 	margin:0;
-	margin-right:$gutter*2;
+	margin-right:25px;
 	background-color:white;
-	background-image:url("../images/logo-invert.svg");
+	background-image:url("../images/moment2014-small-hollow-black.svg");
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:20px;
@@ -691,6 +679,11 @@ p.lead {
 	display:table;
 	padding-top:120px; //Offset fix for magellan anchor navigation
 	margin-top:-120px;
+}
+
+.home .screen {
+	padding-top:0; //Offset fix for magellan anchor navigation
+	margin-top:0;
 }
 
 .screen	>.inner {
@@ -783,15 +776,12 @@ table, table * {
 
 // TREE
 .tree {
-	background:url("../images/tree.svg");
-	background-size:cover;
-	background-repeat:no-repeat;
-	background-position:top center;
-	height:100%;
+	margin-top:200px;
+	height:200%;
 	width:100%;
 	position: relative;
 	z-index:1;
-	box-shadow:0 0 100px black inset;
+	text-align:center;
 
 	* {
 		backface-visibility:hidden;
@@ -801,7 +791,300 @@ table, table * {
 		perspective: 0;
 		-webkit-perspective: 0; /* Safari and Chrome */
 	}
+
+	.island {
+		position: absolute;
+		bottom:0;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		border-radius:50px;
+		background:white;
+		-webkit-transform:rotate(45deg);
+		-ms-transform:rotate(45deg);
+		transform:rotate(45deg);
+		margin-bottom: -50px;
+		margin-left: -50px;
+		z-index: 10;
+	}
+
+
+	.gear-container {
+		-moz-animation:rotation2 60s linear infinite;
+		-o-animation:rotation2 60s linear infinite;
+		-webkit-animation:rotation2 60s linear infinite;
+		animation:rotation2 60s linear infinite;
+		left:50%;
+		bottom:0;
+		margin-left: -100px;
+		margin-bottom: -100px;
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		background:black;
+		border-radius:500px;
+
+	}
+
+	.gear-cover {
+		width: 114%;
+		height: 114%;
+		border-radius:100%;
+		background:black;
+		border:1px dashed #333;
+		position: absolute;
+		left: -7%;
+		bottom:-7%;
+		z-index: 10;
+	}
+
+	.gear {
+		left:10px;
+		bottom:10px;
+		position: absolute;
+		background:black;
+		border:1px dashed #333;
+		width: 180px;
+		height: 180px;
+		border-radius:2px;
+	}
+
+	.gear-1{
+		z-index:1;
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	.gear-2{
+		-webkit-transform:rotate(30deg);
+		-ms-transform:rotate(30deg);
+		transform:rotate(30deg);
+		z-index:2;
+	}
+	.gear-3{
+		-webkit-transform:rotate(60deg);
+		-ms-transform:rotate(60deg);
+		transform:rotate(60deg);
+		z-index:3;
+	}
+
+	.sphere {
+		border-top:1px dashed #333;
+		border-radius:100%;
+		position: absolute;
+		left:50%;
+		bottom:0;
+	}
+
+	.sphere-1 {
+		width: 500px;
+		height: 500px;
+		margin:0 0 -250px -250px;
+	}
+	.sphere-2 {
+		width: 700px;
+		height: 700px;
+		margin:0 0 -350px -350px;
+	}
+	.sphere-3 {
+		width: 900px;
+		height: 900px;
+		margin:0 0 -450px -450px;
+	}
+	.sphere-4 {
+		width: 1100px;
+		height: 1100px;
+		margin:0 0 -550px -550px;
+	}
+
 }
+
+.binarytree-container {
+	text-align:center;
+	width:100%;
+	height:40%;
+	position: absolute;
+	bottom:0;
+	left:0;
+	.binarytree {
+		border-radius:100%;
+		height: 100%;
+		width: 1200px;
+		@media only screen and (max-width: 768px){
+			width: 500px;
+		}
+		@media only screen and (max-width: 480px){
+			width: 300px;
+		}
+	}
+}
+
+// TRAJECTORY
+
+.trajectory {
+		width: 100%;
+		height: 50%;
+		position: fixed;
+		left: -50%;
+		top: 0;
+		border-right:1px dashed #333;
+		z-index: 1;
+		-webkit-transform: translate3d(0,0,0);
+		-moz-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		-o-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+.trajectory.armed {}
+
+// BIG LOGO
+
+.biglogo {
+
+	height:400px;
+	position: relative;
+	backface-visibility:hidden;
+	-webkit-backface-visibility:hidden; /* Chrome and Safari */
+	-moz-backface-visibility:hidden; /* Firefox */
+	-ms-backface-visibility:hidden; /* Internet Explorer */
+	perspective: 0;
+	-webkit-perspective: 0; /* Safari and Chrome */
+
+	.hollow{
+		background:url(../images/moment2014-hollow-dashed.svg);
+		background-size:contain;
+		background-position:center;
+		background-repeat:no-repeat;
+		height:300px;
+		width:100%;
+		margin:-150px auto 0;
+		position: absolute;
+		top:50%;
+		left:0;
+		-webkit-transform:rotate(-90deg);
+		-ms-transform:rotate(-90deg);
+		transform:rotate(-90deg);
+		@include transition(all,1s);
+	}
+
+	.filled{
+		background:url(../images/moment2014-hollow-white.svg);
+		background-size:contain;
+		background-position:center;
+		background-repeat:no-repeat;
+		height:300px;
+		width:100%;
+		margin:-150px auto 0;
+		position: absolute;
+		top:50%;
+		left:0;
+		opacity: 0;
+		-webkit-transform:rotate(-90deg);
+		-ms-transform:rotate(-90deg);
+		transform:rotate(-90deg);
+		@include transition(all,1s);
+	}
+
+	.filled.armed {
+		opacity: 1;
+		-webkit-transform:rotate(-0deg);
+		-ms-transform:rotate(-0deg);
+		transform:rotate(-0deg);
+	}
+
+	.hollow.armed {
+		-webkit-transform:rotate(-0deg);
+		-ms-transform:rotate(-0deg);
+		transform:rotate(-0deg);
+	}
+
+	.sphere {
+		border:1px dashed #333;
+		border-radius:100%;
+		position: absolute;
+		left:50%;
+		bottom:50%;
+		-webkit-transform:rotate(-180deg);
+		-ms-transform:rotate(-180deg);
+		transform:rotate(-180deg);
+	}
+
+	.sphere-1 {
+		width: 400px;
+		height: 400px;
+		margin:0 0 -200px -200px;
+		@include transition(all,1s);
+	}
+	.sphere-2 {
+		width: 600px;
+		height: 600px;
+		margin:0 0 -300px -300px;
+		@include transition(all,1.3s);
+	}
+	.sphere-3 {
+		width: 800px;
+		height: 800px;
+		margin:0 0 -400px -400px;
+		@include transition(all,1.6s);
+	}
+	.sphere-4 {
+		width: 1000px;
+		height: 1000px;
+		margin:0 0 -500px -500px;
+		@include transition(all,2s);
+	}
+
+	.digit {
+		-webkit-transform: translate3d(0,0,0);
+		-moz-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		-o-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		border-radius: 100%;
+		position: absolute;
+		display: table;
+		left: 50%;
+		height: 100%;
+		margin-left: -15px;
+		width: 30px;
+		bottom: 0;
+		transform-origin: center center;
+		.inner {
+			display: table-cell;
+			vertical-align: bottom;
+			text-align: center;
+			padding:5px;
+			font: 26px Monaco, MonoSpace;
+			font-size: 12px;
+			text-transform: uppercase;
+			color:#333;
+			@include transition(all,1s);
+		}
+	}
+
+	@for $i from 0 to 3 {
+  	.digit-#{$i}{
+		transform:rotate($i*6deg);
+		-ms-transform:rotate($i*6deg);
+		-webkit-transform:rotate($i*6deg);
+		}  
+	}
+
+	.sphere.armed {
+
+		-webkit-transform:rotate(-0deg);
+		-ms-transform:rotate(-0deg);
+		transform:rotate(-0deg);
+
+		.digit .inner {
+			color:white;
+		}
+	}
+	
+}
+
+// VOYAGE (SHUTTLE)
 
 .voyage {
 	background-size:cover;
@@ -810,7 +1093,6 @@ table, table * {
 	height:250%;
 	width:100%;
 	position: relative;
-	box-shadow:0 0 100px black inset;
 	z-index:1;
 	overflow:hidden;
 
@@ -858,7 +1140,7 @@ table, table * {
 		-webkit-transform:rotate(-45deg);
 		-ms-transform:rotate(-45deg);
 		transform:rotate(-45deg);
-		z-index: 5;
+		z-index: -1;
 
 		.rotator {
 			width: 16px;
@@ -887,7 +1169,7 @@ table, table * {
 		height: 1000px;
 		margin-left: -500px;
 		margin-top: -500px;
-		z-index: 4;
+		z-index: -1;
 		-webkit-transform: translate3d(0,0,0);
 		-moz-transform: translate3d(0,0,0);
 		-ms-transform: translate3d(0,0,0);
@@ -953,6 +1235,7 @@ table, table * {
 	}
 
 	.shuttle.armed {
+		z-index: 5;
 		opacity: 1;
 		width:50px;
 		height:50px;
@@ -967,6 +1250,7 @@ table, table * {
 		height: 50px;
 		margin-left: -25px;
 		margin-top: -25px;
+		z-index: 4;
 
 		.leftwing, .rightwing {
 			border-radius:0;
@@ -994,23 +1278,6 @@ table, table * {
 
 	}
 
-	.trajectory {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		left: -50%;
-		top: 0;
-		border-right:1px dashed #333;
-		z-index: 1;
-		-webkit-transform: translate3d(0,0,0);
-		-moz-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		-o-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-	}
-
-	.trajectory.armed {}
-
 	.shuttle-fog {
 		display: none;
 		width: 100%;
@@ -1036,20 +1303,20 @@ table, table * {
 		border-left: 1px dashed #333;
 		border-bottom: 1px dashed #333;
 		position: absolute;
-		left:0;
+		left:50%;
 		bottom:0;
 		width: 100%;
 		height: 100%;
 		border-radius:100%;
 		z-index: 3;
-		-webkit-transform: translate3d(0,0,0);
-		-moz-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		-o-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
 		
 
 		.digit {
+			-webkit-transform: translate3d(0,0,0);
+			-moz-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			-o-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
 			border-radius: 100%;
 			position: absolute;
 			display: table;
@@ -1067,79 +1334,53 @@ table, table * {
 				font: 26px Monaco, MonoSpace;
 				font-size: 12px;
 				text-transform: uppercase;
-				color:#222;
+				color:#333;
 			}
 		}
-	}
 
-	.sphere-1 {
-		height:200%;
-		width: 200%;
-		margin-left: -50%;
-		margin-bottom: 85%;
-		@for $i from 0 to 100 {
+		@for $i from 0 to 2 {
 	  	.digit-#{$i}{
 			transform:rotate($i*1deg);
 			-ms-transform:rotate($i*1deg);
 			-webkit-transform:rotate($i*1deg);
 			}  
 		}
+	}
+
+
+	.sphere-1 {
+		height:3000px;
+		width: 3000px;
+		margin-left: -1500px;
+		margin-bottom: 100%;
 	}
 
 	.sphere-2 {
-		height:220%;
-		width: 220%;
-		margin-left: -60%;
-		margin-bottom: 65%;
-		@for $i from 0 to 100 {
-	  	.digit-#{$i}{
-			transform:rotate($i*1deg);
-			-ms-transform:rotate($i*1deg);
-			-webkit-transform:rotate($i*1deg);
-			}  
-		}
+		height:3400px;
+		width: 3400px;
+		margin-left: -1700px;
+		margin-bottom: 80%;
 	}
 
 	.sphere-3 {
-		height:240%;
-		width: 240%;
-		margin-left: -70%;
-		margin-bottom: 45%;
-		@for $i from 0 to 100 {
-	  	.digit-#{$i}{
-			transform:rotate($i*1deg);
-			-ms-transform:rotate($i*1deg);
-			-webkit-transform:rotate($i*1deg);
-			}  
-		}
+		height:3800px;
+		width: 3800px;
+		margin-left: -1900px;
+		margin-bottom: 60%;
 	}
 
 	.sphere-4 {
-		height:260%;
-		width: 260%;
-		margin-left: -80%;
-		margin-bottom: 30%;
-		@for $i from 0 to 100 {
-	  	.digit-#{$i}{
-			transform:rotate($i*1deg);
-			-ms-transform:rotate($i*1deg);
-			-webkit-transform:rotate($i*1deg);
-			}  
-		}
+		height:4200px;
+		width: 4200px;
+		margin-left: -2100px;
+		margin-bottom: 40%;
 	}
 
 	.sphere-5 {
-		height:280%;
-		width: 280%;
-		margin-left: -90%;
-		margin-bottom: 15%;
-		@for $i from 0 to 100 {
-	  	.digit-#{$i}{
-			transform:rotate($i*1deg);
-			-ms-transform:rotate($i*1deg);
-			-webkit-transform:rotate($i*1deg);
-			}  
-		}
+		height:4600px;
+		width: 4600px;
+		margin-left: -2300px;
+		margin-bottom: 20%;
 	}		
 
 }
@@ -1188,7 +1429,8 @@ table, table * {
 
 .hint.armed {
 	opacity: 1;
-	top:90%;
+	top:120%;
+	z-index:2;
 }
 
 .hint.end {
@@ -1199,15 +1441,14 @@ table, table * {
 	opacity: 0;
 	border-radius:500px;
 	display:table;
-	width:100px;
-	height:100px;
-	background:black;
-	border:1px dashed #333;
+	width:10px;
+	height:10px;
+	background:white;
 	position: absolute;
 	top:0%;
-	margin-top:0;
+	margin-top:-5px;
 	left:50%;
-	margin-left:-50px;
+	margin-left:-5px;
 	.inner {
 		vertical-align: middle;
 		display: table-inner;
@@ -1217,14 +1458,17 @@ table, table * {
 	-ms-transform: translate3d(0,0,0);
 	-o-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
-	transition: opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s;
-	-moz-transition: opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Firefox 4 */
-	-webkit-transition: opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Safari and Chrome */
-	-o-transition: opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Opera */
+	transition: border-radius 1s, opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s;
+	-moz-transition: border-radius 1s, opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Firefox 4 */
+	-webkit-transition: border-radius 1s, opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Safari and Chrome */
+	-o-transition: border-radius 1s, opacity 1s, margin-top 1s, margin-left 1s, width 1s, height 1s; /* Opera */
 }
 .follower-1.armed {
+	width:100px;
+	height:100px;
 	opacity: 1;
 	margin-top:-50px;
+	margin-left:-50px;
 	text-align:center;
 	overflow: hidden;
 	
@@ -1236,9 +1480,9 @@ table, table * {
 		text-align: center;
 		font-weight: 200;
 		font-size: 12px;
-		padding:45px 0;
-		color:white; 
+		padding:45px 0; 
 		opacity:1;
+		color: black;
 		text-transform: uppercase;
 		word-break: break-all;
 	}
@@ -1254,9 +1498,12 @@ table, table * {
 	margin-left:-5px;
 	position: fixed;
 	span { opacity:0}
+	@include transition(all, 2s);
 }
 
 .follower-1.end {
+	@include transition(all, 2s);
+	top:100%;
 	margin-top:-2px;
 	margin-left:-2px;
 	width:4px;
@@ -1269,7 +1516,6 @@ table, table * {
 .screen-timer {
 	height:100%;
 	margin-bottom:10%;
-	overflow:hidden;
 	position: relative;
 }
 
@@ -1349,7 +1595,8 @@ table, table * {
 	
 	span {
 		border-radius: 100%;
-		font: 26px Monaco, MonoSpace;
+		font-family: Monaco, MonoSpace;
+		font-size: 12px;
 		position: absolute;
 		left: 50%;
 		height: 100%;
@@ -1359,6 +1606,9 @@ table, table * {
 		top: 0;
 		transform-origin: center center;
 		@include transition(color, 1s);
+		@media only screen and (max-width: 480px){
+			font-size: 10px;
+		}
 	}
 
 	span.active {
@@ -1424,7 +1674,7 @@ table, table * {
 	margin:0%;
 	position: absolute;
 	z-index:14;
-	-moz-animation:rotation1 0.180s linear infinite;
+	-moz-animation:rotation1 180s linear infinite;
 	-o-animation:rotation1 180s linear infinite;
 	-webkit-animation:rotation1 180s linear infinite;
 	animation:rotation1 180s linear infinite;
@@ -1491,24 +1741,22 @@ table, table * {
 	width: 78%;
 	margin:11%;
 	z-index:14;
-	border:2px dashed #666;
-	box-shadow:0 0 0 6px #ccc;
+	border:2px dashed #ccc;
+	box-shadow:0 0 0 6px white;
 	background:none;
 	-moz-animation:rotation2 180s linear infinite;
 	-o-animation:rotation2 180s linear infinite;
 	-webkit-animation:rotation2 180s linear infinite;
 	animation:rotation2 180s linear infinite;
-
+	@media only screen and (max-width: 480px){
+		box-shadow:0 0 0 3px white;
+	}
 }
 
 .ring-1.seconds {
 	height:100%;
 	width:100%;
 	z-index:5;
-
-	span {
-		font-size:12px;
-	}
 }
 
 .ring-2.minutes {
@@ -1517,10 +1765,6 @@ table, table * {
 	width: 90%;
 	margin:5%;
 	z-index:10;
-
-	span {
-		font-size:12px;
-	}
 	@include transition(all, 1.2s);
 }
 
@@ -1530,10 +1774,6 @@ table, table * {
 	width: 60%;
 	margin:20%;
 	z-index:15;
-
-	span {
-		font-size:12px;
-	}
 	@include transition(all, 1.4s);
 }
 
@@ -1543,9 +1783,6 @@ table, table * {
 	width: 50%;
 	margin:25%;
 	z-index:20;
-	span {
-		font-size:12px;
-	}
 	@include transition(all, 1.6s);
 }
 
@@ -1558,7 +1795,6 @@ table, table * {
 	z-index:25;
 
 	span {
-		font-size:12px;
 		&:before {
 			content:"";
 			position: absolute;
@@ -1579,7 +1815,7 @@ table, table * {
 }
 
 .seconds, .minutes {
-	@for $i from 0 to 100 {
+	@for $i from 0 to 61 {
   	.digit-#{$i}{
 		transform:rotate($i*6deg);
 		-ms-transform:rotate($i*6deg);
@@ -1589,7 +1825,7 @@ table, table * {
 }
 
 .hours {
-	@for $i from 0 to 100 {
+	@for $i from 0 to 25 {
   	.digit-#{$i}{
 		transform:rotate($i*15deg);
 		-ms-transform:rotate($i*15deg);
@@ -1599,7 +1835,7 @@ table, table * {
 }
 
 .days {
-	@for $i from 0 to 100 {
+	@for $i from 0 to 32 {
   	.digit-#{$i}{
 		transform:rotate($i*11.61290323deg);
 		-ms-transform:rotate($i*11.61290323deg);
@@ -1609,7 +1845,7 @@ table, table * {
 }
 
 .months {
-	@for $i from 0 to 100 {
+	@for $i from 0 to 13 {
   	.digit-#{$i}{
 		transform:rotate($i*30deg);
 		-ms-transform:rotate($i*30deg);

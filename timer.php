@@ -2,22 +2,29 @@
 	<div class="inner" >
 		<div class="row">
 			<div class="columns twelve">
-				<div class="time-container">
+				<div id="#time-container" class="time-container">
 					<div class="focus">
 						<div class="init">
 							Moment 2014
 						</div>
-						<div class="small-timer">
+						<div id="small-timer" class="small-timer">
 							00:00:00
 						</div>	
 					</div>
 					<div class="time ring ring-0 eye-3">
 					</div>
-					<div class="time ring ring-0 eye-2">
-					</div>	
-					<div class="time ring ring-0 eye">
+					<?php if(is_front_page): ?>
+					<div id="hint" class="hint">
+						<div class="inner">
+							Scrolla ner
+						</div>
 					</div>
-					<div class="planet-container">
+					<?php endif; ?>	
+					<div class="time ring ring-0 eye-2">
+					</div>
+					<div id="eye" class="time ring ring-0 eye">
+					</div>
+					<div id="planet-container" class="planet-container">
 						<div class="time ring ring-0i">
 							<div class="gear-1"></div>
 						</div>
@@ -38,7 +45,7 @@
 						</div>
 					</div>
 					<div class="time ring ring-0vii"></div>
-					<div class="time ring ring-1 seconds" data-rotation="0">
+					<div id="seconds" class="time ring ring-1 seconds" data-rotation="0">
 						<div class="inner">
 							<span class="digit-1">01</span>
 							<span class="digit-2">02</span>
@@ -102,7 +109,7 @@
 							<span class="digit-60">00</span>
 						</div>
 					</div>
-					<div class="time ring ring-2 minutes" data-rotation="0">
+					<div id="minutes" class="time ring ring-2 minutes" data-rotation="0">
 						<div class="inner">
 							<span class="digit-1">01</span>
 							<span class="digit-2">02</span>
@@ -166,7 +173,7 @@
 							<span class="digit-60">00</span>
 						</div>
 					</div>
-					<div class="time ring ring-3 hours" data-rotation="0">
+					<div id="hours" class="time ring ring-3 hours" data-rotation="0">
 						<div class="inner">
 							<span class="digit-1">01</span>
 							<span class="digit-2">02</span>
@@ -194,7 +201,7 @@
 							<span class="digit-24">00</span>
 						</div>
 					</div>
-					<div class="time ring ring-4 days" data-rotation="0">
+					<div id="days" class="time ring ring-4 days" data-rotation="0">
 						<div class="inner">
 							<span class="digit-1">01</span>
 							<span class="digit-2">02</span>
@@ -229,7 +236,7 @@
 							<span class="digit-31">00</span>
 						</div>
 					</div>
-					<div class="time ring ring-5 months" data-rotation="0">
+					<div id="months" class="time ring ring-5 months" data-rotation="0">
 						<div class="inner">
 							<span class="digit-1">01</span>
 							<span class="digit-2">02</span>

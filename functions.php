@@ -8,6 +8,7 @@
 function required_starter_themesetup() {
 
 	load_child_theme_textdomain( 'requiredstarter', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'requiredfoundation', get_stylesheet_directory() . '/languages' );
 
 	// Register an additional Menu Location
 	register_nav_menus( array(
@@ -86,7 +87,7 @@ function required_starter_scripts() {
 	 */
 	wp_register_script(
 		'machine-js',
-		get_stylesheet_directory_uri() . '/javascripts/machine.min.js',
+		get_stylesheet_directory_uri() . '/javascripts/machine.js',
 		array( 'theme-js' ),
 		required_get_theme_version( false ),
 		true

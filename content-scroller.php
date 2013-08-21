@@ -27,7 +27,7 @@
 
 <?php endwhile; // end of the loop. ?>
 <?php if(is_front_page()): ?>
-	<?php get_template_part("shuttle"); ?>
+	<? // php get_template_part("shuttle"); ?>
 <?php endif; ?>
 
 <?php $parent = $post->ID; ?>
