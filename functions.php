@@ -87,7 +87,7 @@ function required_starter_scripts() {
 	 */
 	wp_register_script(
 		'machine-js',
-		get_stylesheet_directory_uri() . '/javascripts/machine.js',
+		get_stylesheet_directory_uri() . '/javascripts/machine.min.js',
 		array( 'theme-js' ),
 		required_get_theme_version( false ),
 		true
@@ -199,11 +199,12 @@ class REQ_Moment_Walker extends Walker_Nav_Menu {
 
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$title = sanitize_title($item->title);
 
 		$class_names = $value = '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
+		$classes[] = 'menu-item-' . $item->ID . ' menu-item-' . $title;
 
 		// Check for flyout
 		$flyout_toggle = '';

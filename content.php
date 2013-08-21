@@ -13,7 +13,7 @@
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php the_post_thumbnail("full"); ?>
 			<?php else : ?>
-			<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail("full"); ?>
 			<h1 class="entry-title">
 				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'requiredfoundation' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h1>

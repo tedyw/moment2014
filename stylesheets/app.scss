@@ -391,6 +391,25 @@ article:last-child {
 
 p { font-size:16px; }
 
+.menu-item-for-foretag {
+	a {
+		padding:0 10px!important;
+		border-radius:10px;
+		border:1px dashed #333;
+	}
+	&:hover {
+		a {
+			border:1px dashed $blue;
+		}
+	}
+}
+
+.menu-item-for-foretag.active {
+	a {
+		border:1px dashed $blue;
+	}
+}
+
 .top-bar [class*="icon-"] {
 }
 
@@ -622,6 +641,12 @@ p.lead {
 
 
 // PAGE TEMPLATE SCROLLER
+
+.page-template-maintenance-php {
+	#hint {
+		display: none;
+	}
+}
 
 .page-template-scroller-php {
 
@@ -942,7 +967,7 @@ table, table * {
 
 .biglogo {
 
-	height:400px;
+	height:800px;
 	position: relative;
 	backface-visibility:hidden;
 	-webkit-backface-visibility:hidden; /* Chrome and Safari */

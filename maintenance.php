@@ -9,7 +9,7 @@
  */
 
 get_header(); ?>
-<div class="frontoverlay">
+<div id="frontoverlay" class="frontoverlay">
 		<div class="inner">
 			<div class="loader">
 				<div aria-hidden="true" class="menu-logo loading-logo"></div>

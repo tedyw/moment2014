@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Moment v2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-08-21 10:37:05+0000\n"
+"PO-Revision-Date: 2013-08-21 11:11:39+0000\n"
 "Last-Translator: admin <tedy@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -479,7 +479,7 @@ msgstr "Svara <span>&darr;</span>"
 #, php-format
 #@ requiredfoundation
 msgid "<h6>Posted by <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span> on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a></h6>"
-msgstr "<h6>Postad av <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span> vi <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a></h6>"
+msgstr "<h6>Inlagd av <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span> den <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a></h6>"
 
 #: /Users/tedyw/Dropbox/Server/htdocs/moment2014/wp-content/themes/required-foundation/functions.php:412
 #, php-format
