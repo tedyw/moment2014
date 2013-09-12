@@ -77,12 +77,6 @@ $gutter:15px;
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"] {
-*/
 [class*="icon-"] {
 	font-family: 'icomoon';
 	speak: none;
@@ -430,10 +424,6 @@ p { font-size:16px; }
 			margin:30px auto;		
 		}
 	}
-}
-
-.home {
-	//top:0;
 }
 
 .js .home .top-bar .menu-item {
