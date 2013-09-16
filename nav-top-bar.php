@@ -27,7 +27,7 @@
                                 <li><a href="http://vimeo.com/moment" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
                                 <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
                                 <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
-                                <!--<li><a href="#" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>-->
+                                <li><a href="http://www.linkedin.com/company/moment-2014/" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
                                 <li><a href="#third" title="Kontakt"><div aria-hidden="true" class="icon-mail"></div></a></li>
                             </ul>  
                             </section>
