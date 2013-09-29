@@ -17,20 +17,11 @@
                     <div class="twelve columns">
                         <nav id="top-bar" class="top-bar">
                             <ul class="iconmenu">
-                                <li class="site-title"><a href="<?php echo bloginfo("url"); ?>">Moment</a></li>
+                                <li class="site-title"><a href="<?php echo bloginfo("url"); ?>"><?php echo bloginfo("name"); ?></a></li>
                                 <li><div aria-hidden="true" class="menu-logo"></div></li>
+                                <li class="site-title hide-for-small"><a href="<?php echo bloginfo("url"); ?>"><?php echo bloginfo("description"); ?></a></li>
                                 <li class="toggle-topbar"><a href="#"></a></li>
                             </ul>
-                            <section>    
-                            <ul id="socialicons" class="iconmenu socialicons">
-                                <li><a href="https://www.facebook.com/moment.maskinsektionen" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
-                                <li><a href="http://vimeo.com/moment" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
-                                <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
-                                <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
-                                <li><a href="http://www.linkedin.com/company/moment-2014/" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
-                                <li><a href="#third" title="Kontakt"><div aria-hidden="true" class="icon-mail"></div></a></li>
-                            </ul>  
-                            </section>
                             <section>
                             <?php
                                 wp_nav_menu( array(

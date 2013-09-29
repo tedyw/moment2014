@@ -5,7 +5,7 @@
 				<div id="#time-container" class="time-container">
 					<div class="focus">
 						<div class="init">
-							Moment 2014
+							Januari 30 2014
 						</div>
 						<div id="small-timer" class="small-timer">
 							00:00:00

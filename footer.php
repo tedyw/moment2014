@@ -8,7 +8,19 @@
  * @since required+ Foundation 0.1.0
  */
 ?>
-
+	<div class="screen main-sponsor">
+		<div class="inner">
+			<div class="main-sponsor-logo">
+			</div>
+			<div class="main-image-container">
+    			<div class="image">
+    				<div class="frame">
+    					<span><h1>Huvudsamarbetspartner</h1></span>
+    				</div>
+    			</div>
+    		</div>
+		</div>
+	</div>
 	<div class="screen start-footer">
 		<div class="inner">
 
@@ -43,6 +55,14 @@
 
 		</div>
 	</div>
+	<ul id="socialicons" class="iconmenu socialicons hide-for-small">
+        <li><a href="https://www.facebook.com/moment.maskinsektionen" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
+        <li><a href="http://vimeo.com/moment" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
+        <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
+        <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
+        <li><a href="http://www.linkedin.com/company/moment-2014/" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
+        <li><a href="http://www.afconsult.com" target="_blank" title="ÅF"><div aria-hidden="true" class="icon-af"></div></a></li>
+    </ul> 
 
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
 	     chromium.org/developers/how-tos/chrome-frame-getting-started -->

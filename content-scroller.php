@@ -2,23 +2,23 @@
 
 <section data-magellan-destination="<?php the_title(); ?>" id="<?php the_title(); ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
 	<div class="inner">
+		<?php if (has_post_thumbnail( $post->ID )) : 
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full");
+		?>
+    	<div class="entry-thumbnail ">
+    		<div class="main-image-container">
+    			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
+    				<div class="frame">
+    					<span><h1><?php the_title(); ?></h1></span>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <?php endif; ?>
 		<div class="row">
 			<div <?php post_class("twelve columns"); ?>>
-				<?php if (has_post_thumbnail( $post->ID )) : 
-						$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full");
-				?>
-            	<div class="entry-thumbnail ">
-            		<div class="main-image-container">
-            			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
-            				<div class="frame">
-            					<span><h1><?php the_title(); ?></h1></span>
-            				</div>
-            			</div>
-            		</div>
-            	</div>
-		        <?php endif; ?>
 				<article id="post-<?php the_ID(); ?>">
-			            <?php the_content(); ?>
+			        <?php the_content(); ?>
 			    </article>
 			</div>
 		</div>
@@ -40,26 +40,27 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 
 <section data-magellan-destination="<?php echo $post->post_name; ?>" id="<?php echo $post->post_name; ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
 	<div class="inner">
+		<?php if (has_post_thumbnail( $post->ID )) : 
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full");
+		?>
+    	<div class="entry-thumbnail ">
+    		<div class="main-image-container">
+    			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
+    				<div class="frame">
+    					<span><h1><?php the_title(); ?></h1></span>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    <?php endif; ?>
 		<div class="row">
 			<div <?php post_class("twelve columns"); ?>>
 				<article id="post-<?php the_ID(); ?>" >
+					<?php if (!has_post_thumbnail( $post->ID )) : ?>
 		            <header class="entry-header">
-		            	<?php if (has_post_thumbnail( $post->ID )) : 
-								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full");
-						?>
-		            	<div class="entry-thumbnail ">
-		            		<div class="main-image-container">
-		            			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
-		            				<div class="frame">
-		            					<span><h1><?php the_title(); ?></h1></span>
-		            				</div>
-		            			</div>
-		            		</div>
-		            	</div>
-				        <?php else: ?>
-		            	<h1 class="entry-title"><?php the_title(); ?></h1>
-		           		<?php endif; ?>
+		            	<div class="entry-title-container"><h1 class="entry-title"><?php the_title(); ?></h1></div>
 		            </header>
+		       	 	<?php endif; ?>
 		            <div class="entry-content">
 		            	<?php the_content(); ?>
 		        	</div>
