@@ -13,13 +13,6 @@
 					</div>
 					<div class="time ring ring-0 eye-3">
 					</div>
-					<?php if(is_front_page): ?>
-					<div id="hint" class="hint">
-						<div class="inner">
-							Scrolla ner
-						</div>
-					</div>
-					<?php endif; ?>	
 					<div class="time ring ring-0 eye-2">
 					</div>
 					<div id="eye" class="time ring ring-0 eye">

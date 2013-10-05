@@ -8,7 +8,7 @@
  * @since required+ Foundation 0.1.0
  */
 ?>
-	<div class="screen main-sponsor">
+	<!-- <div class="screen main-sponsor">
 		<div class="inner">
 			<div class="main-sponsor-logo">
 			</div>
@@ -20,7 +20,7 @@
     			</div>
     		</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="screen start-footer">
 		<div class="inner">
 
@@ -31,6 +31,7 @@
 					*/
 						get_sidebar( 'footer' );
 					?>
+				<div class="footer-container">
 					<div id="footer" class="row" role="contentinfo">
 						<div class="four columns">	
 							<p>2013 &copy Moment.</p>
@@ -51,6 +52,7 @@
 							) ); ?>
 						</div>
 					</div>
+				</div>
 			</div><!-- Container End -->
 
 		</div>
@@ -61,7 +63,7 @@
         <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
         <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
         <li><a href="http://www.linkedin.com/company/moment-2014/" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
-        <li><a href="http://www.afconsult.com" target="_blank" title="ÅF"><div aria-hidden="true" class="icon-af"></div></a></li>
+        <!-- <li><a href="http://www.afconsult.com" target="_blank" title="ÅF"><div aria-hidden="true" class="icon-af"></div></a></li> -->
     </ul> 
 
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

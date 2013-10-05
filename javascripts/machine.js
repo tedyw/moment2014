@@ -324,10 +324,10 @@
     	requestTimeout(openLid, 1500);
     	requestTimeout(initCountdown, 2500);
     	requestTimeout(startCountdown, 2500);
-    	// requestTimeout(activateMenu, 3500);
-    	//requestTimeout(deployIcons, 4700);
-    	//requestTimeout(deployMenuItems, 6200);
-    	requestTimeout(activateHint, 100);
+    	requestTimeout(activateMenu, 2500);
+    	requestTimeout(deployIcons, 4700);
+    	requestTimeout(deployMenuItems, 6200);
+    	requestTimeout(activateHint, 1600);
 
     	$(window).bind("scroll", function(){  
     		armsequence();

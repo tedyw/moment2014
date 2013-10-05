@@ -93,7 +93,7 @@ function required_starter_scripts() {
 		true
 	);
 
-	if ( is_front_page() || is_page_template('timer.php') || is_page_template('maintenance.php') ) {
+	if ( is_front_page() || is_page_template('page-timer.php') || is_page_template('maintenance.php') ) {
     	wp_enqueue_script('machine-js');
   	}
 
@@ -127,6 +127,50 @@ function required_starter_scripts() {
 	);
 }
 add_action('wp_enqueue_scripts', 'required_starter_scripts');
+
+function moment_widgets_init() {
+
+	register_sidebar( array(
+		'name' => __( 'Main Sidebar', 'moment' ),
+		'id' => 'sidebar-main',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area One', 'moment' ),
+		'id' => 'sidebar-start-1',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area Two', 'moment' ),
+		'id' => 'sidebar-start-2',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area Three', 'moment' ),
+		'id' => 'sidebar-start-3',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+}
+add_action( 'widgets_init', 'moment_widgets_init' );
 
 /**
  * Overwrite the default continue reading link

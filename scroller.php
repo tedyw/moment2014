@@ -67,16 +67,27 @@ get_header(); ?>
 	</div>
 	<div id="hint-student" class="hint hint-student">
 		<div class="inner">
-			⇣ Student ⇣
+			⇣ Ner ⇣
 		</div>
 	</div>
-	<a href="<?php echo bloginfo("site-url"); ?>/for-foretag"><div id="hint-company" class="hint hint-company">
+	<div id="frontoverlay" class="frontoverlay">
 		<div class="inner">
-			⇥ För Företag ⇤
-		</div>
+			<div class="loader">
+				<div aria-hidden="true" class="menu-logo loading-logo"></div>
+				<div class="gear-container">
+					<div class="gear gear-1"></div>
+					<div class="gear gear-2"></div>
+					<div class="gear gear-3"></div>
+				</div>
+			</div>
+			<span>Laddar innehåll</span>
+		</div>	
 	</div>
-	</a>
 <?php endif; ?>	
+
 <?php get_template_part("content", "scroller"); ?>
+
+
+
 <?php get_footer(); ?>
 	

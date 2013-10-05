@@ -30,6 +30,15 @@
 	<? // php get_template_part("shuttle"); ?>
 <?php endif; ?>
 
+<?php if(is_front_page()): ?>
+    <section class="screen screen-short-news">
+    	<div class="short-news">
+    		<div class="short-news-title-container"><h1 class="short-news-title"><?php _e("Latest", "moment"); ?></h1></div>
+    	</div>
+		<?php get_sidebar( 'start' ); ?>
+	</section>
+<?php endif; ?>
+
 <?php $parent = $post->ID; ?>
 <?php $parent_name = $post->post_name; ?>
 
