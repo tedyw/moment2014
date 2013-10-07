@@ -21,7 +21,7 @@
     		</div>
 		</div>
 	</div> -->
-	<div class="screen start-footer">
+	<div class="screen screen-footer">
 		<div class="inner">
 
 				<?php
@@ -33,8 +33,16 @@
 					?>
 				<div class="footer-container">
 					<div id="footer" class="row" role="contentinfo">
-						<div class="four columns">	
-							<p>2013 &copy Moment.</p>
+						<div class="eight columns push-four">
+							<?php wp_nav_menu( array(
+								'theme_location' => 'secondary',
+								'container' => false,
+								'menu_class' => 'inline-list right',
+								'fallback_cb' => false
+							) ); ?>
+						</div>
+						<div class="four columns pull-eight">	
+							<p><?php echo date("Y"); ?> &copy Moment. Maskinsektionens Arbetsmarknadsmässa</p>
 							<a href="http://codeorig.in/" target="_blank" title="Tedy Warsitha" class="brand-link">
 							<div class="brand">
 								<p class="theme">Machinam</p>
@@ -42,14 +50,6 @@
 								<p>Designad av Tedy Warsitha.</p>
 							</div>
 							</a>
-						</div>
-						<div class="eight columns">
-							<?php wp_nav_menu( array(
-								'theme_location' => 'secondary',
-								'container' => false,
-								'menu_class' => 'inline-list right',
-								'fallback_cb' => false
-							) ); ?>
 						</div>
 					</div>
 				</div>

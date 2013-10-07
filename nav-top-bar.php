@@ -18,7 +18,8 @@
                         <nav id="top-bar" class="top-bar">
                             <ul class="iconmenu">
                                 <li><div aria-hidden="true" class="menu-logo"></div></li>
-                                <li class="site-title"><a href="<?php echo bloginfo("url"); ?>"><?php echo bloginfo("name"); ?></a></li>                                <li class="toggle-topbar"><a href="#"></a></li>
+                                <li class="site-title"><a href="<?php echo bloginfo("url"); ?>"><?php echo bloginfo("name"); ?><span class="site-description"> - <?php echo bloginfo("description"); ?></span></a></li>                                
+                                <li class="toggle-topbar"><a href="#"></a></li>
                             </ul>
                             <section>
                             <?php
