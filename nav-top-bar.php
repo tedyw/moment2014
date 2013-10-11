@@ -50,9 +50,9 @@
                     <hgroup class="magellan-container">
                         <nav class="magellan-bar">
                             <ul data-magellan-expedition>
-                                <li data-magellan-arrival="<?php echo $parent_title ?>"><a href="#<?php echo $parent_title ?>"><?php echo $parent_title ?></a></li>
+                                <li data-magellan-arrival="<?php echo sanitize_title($parent_title); ?>"><a href="#<?php echo sanitize_title($parent_title); ?>"><?php echo $parent_title ?></a></li>
                                 <?php while($secondary->have_posts()) : $secondary->the_post(); ?>
-                                <li data-magellan-arrival="<?php echo $post->post_name; ?>">
+                                <li data-magellan-arrival="<?php echo sanitize_title($post->post_name); ?>">
                                     <a href="#<?php echo $post->post_name; ?>"><?php the_title() ?></a>
                                 </li>
                                 <?php endwhile; wp_reset_postdata(); ?>

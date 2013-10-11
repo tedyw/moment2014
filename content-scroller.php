@@ -1,9 +1,9 @@
 <?php while ( have_posts() ) : the_post(); ?>			
 
-<section data-magellan-destination="<?php the_title(); ?>" id="<?php the_title(); ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
+<section data-magellan-destination="<?php echo sanitize_title($post->post_name); ?>" id="<?php echo sanitize_title($post->post_name); ?>" class="screen screen-first screen-<?php echo sanitize_title($post->post_name); ?>">
 	<div class="inner">
 		<?php if (has_post_thumbnail( $post->ID )) : 
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "background");
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "hd-background");
 		?>
     	<div class="entry-thumbnail ">
     		<div class="main-image-container">
@@ -47,10 +47,10 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
  while (have_posts()) : the_post();
 ?>
 
-<section data-magellan-destination="<?php echo $post->post_name; ?>" id="<?php echo $post->post_name; ?>" class="screen screen-<?php echo $post->post_name; ?>" data-magellan-destination="<?php echo $post->post_name; ?>">
+<section data-magellan-destination="<?php echo sanitize_title($post->post_name); ?>" id="<?php echo sanitize_title($post->post_name); ?>" class="screen screen-<?php echo sanitize_title($post->post_name); ?>">
 	<div class="inner">
 		<?php if (has_post_thumbnail( $post->ID )) : 
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "background");
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "hd-background");
 		?>
     	<div class="entry-thumbnail ">
     		<div class="main-image-container">
@@ -114,7 +114,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 						<?php while ($superiors->have_posts()) : $superiors->the_post(); ?>
 						<li class="company">
 							<?php if (has_post_thumbnail( $post->ID )) :  
-									$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "background");
+									$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "hd-background");
 							?>
 			            		<div class="logo-container image-container">
 			            			<div class="company-logo">
@@ -159,11 +159,11 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 						<?php while ($superiors->have_posts()) : $superiors->the_post(); ?>
 						<li class="superior">
 							<?php if (has_post_thumbnail( $post->ID )) :  
-									$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "background");
+									$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "hd-background");
 							?>
 			            		<div class="superior-container image-container">
 			            			<div class="superior-image">
-			            				<?php the_post_thumbnail("square"); ?>
+			            				<?php the_post_thumbnail("potrait"); ?>
 			            				<ul class="contact-info">
 			            					<li class="email"><span><?php echo str_replace("@", "(at)", get_field("contact-email")); ?></span></li>
 			            					<li class="phone"><span><?php echo get_field("contact-phone"); ?></span></li>

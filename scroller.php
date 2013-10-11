@@ -73,7 +73,7 @@ get_header(); ?>
 	<div id="frontoverlay" class="frontoverlay">
 		<div class="inner">
 			<div class="loader">
-				<div aria-hidden="true" class="menu-logo loading-logo"></div>
+				<div aria-hidden="true" class="loader-logo loading-logo"></div>
 				<div class="gear-container">
 					<div class="gear gear-1"></div>
 					<div class="gear gear-2"></div>

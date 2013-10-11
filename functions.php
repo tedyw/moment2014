@@ -67,8 +67,9 @@ function required_starter_after_parent_theme_setup() {
 	// Remove a menu from the theme: http://codex.wordpress.org/Navigation_Menus
 	//unregister_nav_menu( 'secondary' );
 
-	add_image_size( 'background', 1920, 1080, true );
+	add_image_size( 'hd-background', 1920, 1080, true );
 	add_image_size( 'square', 640, 640, true );
+	add_image_size( 'potrait', 480, 640, false );
 
 }
 add_action( 'after_setup_theme', 'required_starter_after_parent_theme_setup', 11 );
@@ -379,3 +380,18 @@ function create_custom_taxonomies() {
 	register_taxonomy( 'company_type', array( 'company' ), $args );
 }
 add_action( 'init', 'create_custom_taxonomies', 0 );
+
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ * Create your own required_posted_on to override in a child theme
+ *
+ * @since required+ Foundation 0.3.0
+ */
+function required_posted_on() {
+	printf( __( '<h6>Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></h6>', 'requiredfoundation' ),
+		esc_url( get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('d')) ),
+		esc_attr( get_the_time('r') ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+}
