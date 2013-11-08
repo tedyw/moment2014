@@ -14,7 +14,7 @@ get_header(); ?>
 	<!-- Row for main content area -->
 	<div id="content" class="row">
 
-		<div id="main" class="eight columns" role="main">
+		<div id="main" class="six columns" role="main">
 
 			<div class="post-box">
 
@@ -37,9 +37,14 @@ get_header(); ?>
 
 		</div><!-- /#main -->
 
-		<aside id="sidebar" class="four columns" role="complementary">
+		<aside id="sidebar" class="three columns" role="complementary">
 			<div class="sidebar-box">
 				<?php get_sidebar(); ?>
+			</div>
+		</aside><!-- /#sidebar -->
+		<aside id="sidebar-secondary" class="three columns" role="complementary">
+			<div class="sidebar-box">
+				<?php get_sidebar("secondary"); ?>
 			</div>
 		</aside><!-- /#sidebar -->
 

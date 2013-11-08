@@ -136,7 +136,7 @@
 
 	function closeLid(){
 		$("#eye").removeClass("armed");
-		$("#time-container").find(".focus").addClass("armed");
+		$("#focus").addClass("armed");
 	}
 
 	function removeCover(){
@@ -318,16 +318,16 @@
 
 	function machineinit(date) {
 		$datestring = date; //Destination date.
-		requestTimeout(activateCoverContent, 100);
-    	requestTimeout(activateCover, 1400);
-    	requestTimeout(removeCover, 3000);
+		requestTimeout(activateCoverContent, 0);
+    	requestTimeout(activateCover, 0);
+    	requestTimeout(removeCover, 200);
     	requestTimeout(openLid, 1500);
     	requestTimeout(initCountdown, 2500);
     	requestTimeout(startCountdown, 2500);
-    	requestTimeout(activateMenu, 2500);
-    	requestTimeout(deployIcons, 4700);
-    	requestTimeout(deployMenuItems, 6200);
-    	requestTimeout(activateHint, 1600);
+    	requestTimeout(activateMenu, 0);
+    	//requestTimeout(deployIcons, 4700);
+    	//requestTimeout(deployMenuItems, 6200);
+    	requestTimeout(activateHint, 0);
 
     	$(window).bind("scroll", function(){  
     		armsequence();

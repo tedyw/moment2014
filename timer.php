@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="columns twelve">
 				<div id="#time-container" class="time-container">
-					<div class="focus">
+					<div id="focus" class="focus">
 						<div class="init">
 							Januari 30 2014
 						</div>

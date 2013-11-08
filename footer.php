@@ -8,10 +8,13 @@
  * @since required+ Foundation 0.1.0
  */
 ?>
-	<!-- <div class="screen main-sponsor">
+
+	<?php
+	$current_user = wp_get_current_user();
+	?>
+	<?php // if ( 2 == $current_user->ID ) { ?>
+	<div class="screen main-sponsor">
 		<div class="inner">
-			<div class="main-sponsor-logo">
-			</div>
 			<div class="main-image-container">
     			<div class="image">
     				<div class="frame">
@@ -20,7 +23,8 @@
     			</div>
     		</div>
 		</div>
-	</div> -->
+	</div>
+	<?php // } ?>
 	<div class="screen screen-footer">
 		<div class="inner">
 
@@ -29,7 +33,7 @@
 						A sidebar in the footer? Yep. You can can customize
 						your footer with three columns of widgets.
 					*/
-						get_sidebar( 'footer' );
+						 get_sidebar( 'footer' );
 					?>
 				<div class="footer-container">
 					<div id="footer" class="row" role="contentinfo">
@@ -42,7 +46,7 @@
 							) ); ?>
 						</div>
 						<div class="four columns pull-eight">	
-							<p><?php echo date("Y"); ?> &copy Moment. Maskinsektionens Arbetsmarknadsmässa</p>
+							<p><?php echo date("Y"); ?> &copy; Moment. Maskinsektionens Arbetsmarknadsmässa</p>
 							<a href="http://codeorig.in/" target="_blank" title="Tedy Warsitha" class="brand-link">
 							<div class="brand">
 								<p class="theme">Machinam</p>
@@ -57,13 +61,14 @@
 
 		</div>
 	</div>
+
 	<ul id="socialicons" class="iconmenu socialicons hide-for-small">
         <li><a href="https://www.facebook.com/moment.maskinsektionen" target="_blank" title="Facebook"><div aria-hidden="true" class="icon-facebook"></div></a></li>
         <li><a href="http://vimeo.com/moment" target="_blank" title="Vimeo"><div aria-hidden="true" class="icon-vimeo"></div></a></li>
         <li><a href="http://instagr.am/moment2014" target="_blank" title="Instagram"><div aria-hidden="true" class="icon-instagram"></div></a></li>
         <li><a href="https://twitter.com/Moment2014" target="_blank" title="Twitter"><div aria-hidden="true" class="icon-twitter"></div></a></li>
         <li><a href="http://www.linkedin.com/company/moment-2014/" target="_blank" title="Linkedin"><div aria-hidden="true" class="icon-linkedin"></div></a></li>
-        <!-- <li><a href="http://www.afconsult.com" target="_blank" title="ÅF"><div aria-hidden="true" class="icon-af"></div></a></li> -->
+        <?php // if ( 2 == $current_user->ID ) { ?><li><a href="http://www.afconsult.com" target="_blank" title="ÅF"><div aria-hidden="true" class="icon-af"></div></a></li> <?// }?>
     </ul> 
 
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

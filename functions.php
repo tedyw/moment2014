@@ -7,12 +7,11 @@
  */
 function required_starter_themesetup() {
 
-	load_child_theme_textdomain( 'requiredstarter', get_stylesheet_directory() . '/languages' );
-	load_child_theme_textdomain( 'requiredfoundation', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'moment', get_stylesheet_directory() . '/languages' );
 
 	// Register an additional Menu Location
 	register_nav_menus( array(
-		'meta' => __( 'Meta Menu', 'requiredstarter' )
+		'meta' => __( 'Meta Menu', 'moment' )
 	) );
 
 	// Add support for custom backgrounds and overwrite the parent backgorund color
@@ -74,6 +73,13 @@ function required_starter_after_parent_theme_setup() {
 }
 add_action( 'after_setup_theme', 'required_starter_after_parent_theme_setup', 11 );
 
+function _remove_script_version( $src ){
+    $parts = explode( '?ver', $src );
+        return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
 /**
  * Add our theme specific js file and some Google Fonts
  * @return void
@@ -94,7 +100,7 @@ function required_starter_scripts() {
 		true
 	);
 
-	if ( is_front_page() || is_page_template('page-timer.php') || is_page_template('maintenance.php') ) {
+	if ( /*is_front_page() ||*/ is_page_template('page-timer.php') || is_page_template('maintenance.php') ) {
     	wp_enqueue_script('machine-js');
   	}
 
@@ -134,6 +140,16 @@ function moment_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'moment' ),
 		'id' => 'sidebar-main',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Secondary Sidebar', 'moment' ),
+		'id' => 'sidebar-secondary',
+		'description' => __( 'An optional widget area for your site news page', 'moment' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h4 class="widget-title">',
@@ -183,7 +199,7 @@ add_action( 'widgets_init', 'moment_widgets_init' );
  * @return string HTML link with text and permalink to the post/page/cpt
  */
 function required_continue_reading_link() {
-	return ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . __( ' Read on! &rarr;', 'requiredstarter' ) . '</a>';
+	return ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . __( ' Read on! &rarr;', 'moment' ) . '</a>';
 }
 
 /**

@@ -1,20 +1,47 @@
-<?php while ( have_posts() ) : the_post(); ?>			
+<?php
 
-<section data-magellan-destination="<?php echo sanitize_title($post->post_name); ?>" id="<?php echo sanitize_title($post->post_name); ?>" class="screen screen-first screen-<?php echo sanitize_title($post->post_name); ?>">
+	$adaptive_ID = $post->ID;
+	if(is_front_page()){ 
+	$sticky = get_option('sticky_posts');
+	rsort( $sticky );
+	$sticky = array_slice( $sticky, 0, 1);
+    	$the_query = new WP_Query( array( 'post__in' => $sticky, 'caller_get_posts' => 1 ) );
+    	if ( $the_query->have_posts() ) {
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+				$adaptive_ID = $the_query->post->ID;
+			}
+		}
+	}	
+?>
+
+<?php if ( have_posts() ) : ?>
+<?php while ( have_posts() ) : the_post(); ?>
+
+<?php if($post->post_name == "af"): $sclass = "main-sponsor head"; endif; ?>		
+
+<section data-magellan-destination="<?php echo sanitize_title($post->post_name); ?>" id="<?php echo sanitize_title($post->post_name); ?>" class="screen <?php echo $sclass; ?> screen-first screen-<?php echo sanitize_title($post->post_name); ?>">
 	<div class="inner">
-		<?php if (has_post_thumbnail( $post->ID )) : 
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "hd-background");
+		<?php 
+			if (has_post_thumbnail( $adaptive_ID) || $sclass != "") : 
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $adaptive_ID ), "hd-background");
+			endif;
 		?>
     	<div class="entry-thumbnail ">
     		<div class="main-image-container">
-    			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
+    			<div class="image" <?php if($sclass == ""): ?>style="background-image:url(<?php echo $image[0];  ?>)" <?php endif; ?> title="<?php the_title(); ?>">
+    				<?php if(is_front_page()): ?><a href="<?php echo get_permalink($adaptive_ID); ?>" title="<?php echo get_the_title($adaptive_ID); ?>"><?php endif; ?>
     				<div class="frame">
-    					<span><h1><?php the_title(); ?></h1></span>
+    						<h1><?php echo get_the_title($adaptive_ID); ?></h1>
     				</div>
+    				<?php if(is_front_page()): ?></a>
+    					<div class="hint scroll-down armed">
+    						<div class="inner">▼</div>
+    					</div>
+    				<?php endif; ?>
     			</div>
     		</div>
     	</div>
-        <?php endif; ?>
 		<div class="row">
 			<div <?php post_class("twelve columns"); ?>>
 				<article id="post-<?php the_ID(); ?>">
@@ -26,14 +53,12 @@
 </section>
 
 <?php endwhile; // end of the loop. ?>
-<?php if(is_front_page()): ?>
-	<? // php get_template_part("shuttle"); ?>
 <?php endif; ?>
 
 <?php if(is_front_page()): ?>
     <section class="screen screen-short-news">
     	<div class="short-news">
-    		<div class="short-news-title-container"><h1 class="short-news-title">Senaste nytt</h1></div>
+    		<div class="short-news-title-container"><h2 class="short-news-title">Senaste nytt</h2></div>
     	</div>
 		<?php get_sidebar( 'start' ); ?>
 	</section>
@@ -56,7 +81,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
     		<div class="main-image-container">
     			<div class="image" style="background-image:url(<?php echo $image[0];  ?>)" title="<?php the_title(); ?>">
     				<div class="frame">
-    					<span><h1><?php the_title(); ?></h1></span>
+    					<h2><?php the_title(); ?></h2>
     				</div>
     			</div>
     		</div>
@@ -65,7 +90,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 		<article id="post-<?php the_ID(); ?>" >
 			<?php if (!has_post_thumbnail( $post->ID )) : ?>
             <header class="entry-header">
-            	<div class="entry-title-container"><h1 class="entry-title"><?php the_title(); ?></h1></div>
+            	<div class="entry-title-container"><h2 class="entry-title"><?php the_title(); ?></h2></div>
             </header>
             <?php endif; ?>
             <div class="row">
@@ -85,10 +110,18 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
                         'order' => 'ASC',
                         'cat' => $post->post_name,
                         'orderby' => 'menu_order'
-                        );     
+                        );   
+            ?>
+            <?php 
+            	if($post->post_name == "utstallare"):
+            		$participation = true;
+            	else:
+            		$participation = false;
+            	endif;	  
             ?>
             <?php $superiors = new WP_Query($args);
             if($superiors->have_posts()):?>
+            <?php if($participation == true): ?>
             <div class="row">
             	<div class="twelve columns participation-description">
 	            	<ul class="participation-container">
@@ -108,6 +141,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 	            	</ul>
             	</div>	
             </div>
+        	<?php endif ?>
             <div class="row">
             	<div class="twelve columns company-container">
 					<ul class="block-grid four-up mobile-two-up">
@@ -120,7 +154,7 @@ query_posts('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
 			            			<div class="company-logo">
 			            				<?php the_post_thumbnail("square"); ?>
 			            			</div>
-			            			<?php if(get_field("delaktighet")): ?>
+			            			<?php if(get_field("delaktighet") && $participation == true): ?>
 			            			<ul class="participation-container">
 			            				<li class="participation"><h2 class="company-title"><?php the_title(); ?></h2></li>
 			            				<?php foreach (get_field("delaktighet") as $participation) { ?>

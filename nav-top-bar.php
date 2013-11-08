@@ -13,7 +13,7 @@
             <!-- START: nav-top-bar.php -->
             <!-- <div class="contain-to-grid"> // enable to contain to grid -->
             <header id="primary-nav" class="primary-nav">
-                <hgroup class="row">
+                <div class="row">
                     <div class="twelve columns">
                         <nav id="top-bar" class="top-bar">
                             <ul class="iconmenu">
@@ -37,7 +37,7 @@
                             </section>
                         </nav>
                     </div>
-                </hgroup>
+                </div>
                 <?php if(!is_search() && !is_404()): ?>
                     <?php $parent = $post->ID; ?>
                     <?php $parent_name = $post->post_name; ?>
@@ -47,7 +47,7 @@
                     $secondary = new WP_Query('post_type=page&order=ASC&orderby=menu_order&post_parent='.$parent);
                         if($secondary->have_posts()) :
                     ?>
-                    <hgroup class="magellan-container">
+                    <div class="magellan-container">
                         <nav class="magellan-bar">
                             <ul data-magellan-expedition>
                                 <li data-magellan-arrival="<?php echo sanitize_title($parent_title); ?>"><a href="#<?php echo sanitize_title($parent_title); ?>"><?php echo $parent_title ?></a></li>
@@ -58,7 +58,7 @@
                                 <?php endwhile; wp_reset_postdata(); ?>
                             </ul>    
                         </nav>    
-                    </hgroup>  
+                    </div>  
                     <?php
                         endif;
                     ?> 

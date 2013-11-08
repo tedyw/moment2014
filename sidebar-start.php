@@ -23,19 +23,19 @@
 <!-- START: sidebar-start.php -->
 <div id="startwidgets" class="row">
 	<?php if ( is_active_sidebar( 'sidebar-start-1' ) ) : ?>
-	<div id="first" class="widget-area <?php echo required_footer_sidebar_columns(); ?>">
+	<div id="start-first" class="widget-area <?php echo required_footer_sidebar_columns(); ?>">
 		<?php dynamic_sidebar( 'sidebar-start-1' ); ?>
 	</div><!-- #first .widget-area -->
 	<?php endif; ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-start-2' ) ) : ?>
-	<div id="second" class="widget-area <?php echo $required_c = (required_footer_sidebar_columns() == 'eight columns' ? 'four columns' : required_footer_sidebar_columns()); ?>">
+	<div id="start-second" class="widget-area <?php echo $required_c = (required_footer_sidebar_columns() == 'eight columns' ? 'four columns' : required_footer_sidebar_columns()); ?>">
 		<?php dynamic_sidebar( 'sidebar-start-2' ); ?>
 	</div><!-- #second .widget-area -->
 	<?php endif; ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-start-3' ) ) : ?>
-	<div id="third" class="widget-area <?php echo $required_c = (required_footer_sidebar_columns() == 'four columns reverse' ? 'eight columns' : required_footer_sidebar_columns()); ?>">
+	<div id="start-third" class="widget-area <?php echo $required_c = (required_footer_sidebar_columns() == 'four columns reverse' ? 'eight columns' : required_footer_sidebar_columns()); ?>">
 		<?php dynamic_sidebar( 'sidebar-start-3' ); ?>
 	</div><!-- #third .widget-area -->
 	<?php endif; ?>
