@@ -7,12 +7,11 @@
  */
 function required_starter_themesetup() {
 
-	load_child_theme_textdomain( 'requiredstarter', get_stylesheet_directory() . '/languages' );
-	load_child_theme_textdomain( 'requiredfoundation', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'moment', get_stylesheet_directory() . '/languages' );
 
 	// Register an additional Menu Location
 	register_nav_menus( array(
-		'meta' => __( 'Meta Menu', 'requiredstarter' )
+		'meta' => __( 'Meta Menu', 'moment' )
 	) );
 
 	// Add support for custom backgrounds and overwrite the parent backgorund color
@@ -67,11 +66,19 @@ function required_starter_after_parent_theme_setup() {
 	// Remove a menu from the theme: http://codex.wordpress.org/Navigation_Menus
 	//unregister_nav_menu( 'secondary' );
 
-	add_image_size( 'background', 1920, 1080, true );
+	add_image_size( 'hd-background', 1920, 1080, true );
 	add_image_size( 'square', 640, 640, true );
+	add_image_size( 'potrait', 480, 640, false );
 
 }
 add_action( 'after_setup_theme', 'required_starter_after_parent_theme_setup', 11 );
+
+function _remove_script_version( $src ){
+    $parts = explode( '?ver', $src );
+        return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
 /**
  * Add our theme specific js file and some Google Fonts
@@ -93,7 +100,7 @@ function required_starter_scripts() {
 		true
 	);
 
-	if ( is_front_page() || is_page_template('timer.php') || is_page_template('maintenance.php') ) {
+	if ( /*is_front_page() ||*/ is_page_template('page-timer.php') || is_page_template('maintenance.php') ) {
     	wp_enqueue_script('machine-js');
   	}
 
@@ -128,6 +135,60 @@ function required_starter_scripts() {
 }
 add_action('wp_enqueue_scripts', 'required_starter_scripts');
 
+function moment_widgets_init() {
+
+	register_sidebar( array(
+		'name' => __( 'Main Sidebar', 'moment' ),
+		'id' => 'sidebar-main',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Secondary Sidebar', 'moment' ),
+		'id' => 'sidebar-secondary',
+		'description' => __( 'An optional widget area for your site news page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area One', 'moment' ),
+		'id' => 'sidebar-start-1',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area Two', 'moment' ),
+		'id' => 'sidebar-start-2',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Start Area Three', 'moment' ),
+		'id' => 'sidebar-start-3',
+		'description' => __( 'An optional widget area for your site start page', 'moment' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
+	) );
+
+}
+add_action( 'widgets_init', 'moment_widgets_init' );
+
 /**
  * Overwrite the default continue reading link
  *
@@ -138,7 +199,7 @@ add_action('wp_enqueue_scripts', 'required_starter_scripts');
  * @return string HTML link with text and permalink to the post/page/cpt
  */
 function required_continue_reading_link() {
-	return ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . __( ' Read on! &rarr;', 'requiredstarter' ) . '</a>';
+	return ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . __( ' Read on! &rarr;', 'moment' ) . '</a>';
 }
 
 /**
@@ -335,3 +396,18 @@ function create_custom_taxonomies() {
 	register_taxonomy( 'company_type', array( 'company' ), $args );
 }
 add_action( 'init', 'create_custom_taxonomies', 0 );
+
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ * Create your own required_posted_on to override in a child theme
+ *
+ * @since required+ Foundation 0.3.0
+ */
+function required_posted_on() {
+	printf( __( '<h6>Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></h6>', 'requiredfoundation' ),
+		esc_url( get_day_link(get_the_time('Y'), get_the_time('m'), get_the_time('d')) ),
+		esc_attr( get_the_time('r') ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+}

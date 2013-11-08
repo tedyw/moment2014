@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Moment v2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-08-21 11:11:39+0000\n"
+"PO-Revision-Date: 2013-10-14 18:41:06+0000\n"
 "Last-Translator: admin <tedy@kth.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -60,88 +60,88 @@ msgid "Pages:"
 msgstr "Sidor:"
 
 #: functions.php:14
-#@ requiredstarter
+#@ moment
 msgid "Meta Menu"
-msgstr ""
+msgstr "Meta Meny"
 
-#: functions.php:140
-#@ requiredstarter
+#: functions.php:192
+#@ moment
 msgid " Read on! &rarr;"
-msgstr ""
+msgstr "Läs vidare! &rarr;"
 
-#: functions.php:278
+#: functions.php:331
 #@ default
 msgid "Companies"
 msgstr "Företag"
 
-#: functions.php:279
+#: functions.php:332
 #@ default
 msgid "Company"
 msgstr "Företag"
 
-#: functions.php:295
+#: functions.php:348
 #@ default
 msgid "Superiors"
 msgstr "Ledare"
 
-#: functions.php:296
+#: functions.php:349
 #@ default
 msgid "Superior"
 msgstr "Ledare"
 
-#: functions.php:311
+#: functions.php:364
 #@ default
 msgctxt "taxonomy general name"
 msgid "Company Types"
 msgstr "Företagstyper"
 
-#: functions.php:312
+#: functions.php:365
 #@ default
 msgctxt "taxonomy singular name"
 msgid "Company Type"
 msgstr "Företagstyp"
 
-#: functions.php:313
+#: functions.php:366
 #@ default
 msgid "Search Company Types"
 msgstr "Sök företagstyper"
 
-#: functions.php:314
+#: functions.php:367
 #@ default
 msgid "All Company Types"
 msgstr "Alla företagstyper"
 
-#: functions.php:315
+#: functions.php:368
 #@ default
 msgid "Parent Company Type"
 msgstr ""
 
-#: functions.php:316
+#: functions.php:369
 #@ default
 msgid "Parent Company Type:"
 msgstr ""
 
-#: functions.php:317
+#: functions.php:370
 #@ default
 msgid "Edit Company Type"
 msgstr ""
 
-#: functions.php:318
+#: functions.php:371
 #@ default
 msgid "Update Company Type"
 msgstr ""
 
-#: functions.php:319
+#: functions.php:372
 #@ default
 msgid "Add New Company Type"
 msgstr ""
 
-#: functions.php:320
+#: functions.php:373
 #@ default
 msgid "New Company Type Name"
 msgstr ""
 
-#: functions.php:321
+#: functions.php:374
 #@ default
 msgid "Company Type"
 msgstr ""
@@ -408,7 +408,9 @@ msgstr "Sida %s"
 msgid "&hellip; Continue reading &rarr;"
 msgstr "&hellip; Fortsätt läsa &rarr;"
 
+#: functions.php:141
 #: /Users/tedyw/Dropbox/Server/htdocs/moment2014/wp-content/themes/required-foundation/functions.php:237
+#@ moment
 #@ requiredfoundation
 msgid "Main Sidebar"
 msgstr "Huvudsidomeny"
@@ -685,4 +687,32 @@ msgstr ""
 #@ requiredfoundation
 msgid "Add widgets"
 msgstr ""
+
+#: functions.php:150
+#@ moment
+msgid "Start Area One"
+msgstr "Startyta 1"
+
+#: functions.php:152
+#: functions.php:162
+#: functions.php:172
+#@ moment
+msgid "An optional widget area for your site start page"
+msgstr "En widgetyta för startsidan"
+
+#: functions.php:160
+#@ moment
+msgid "Start Area Two"
+msgstr "Startyta 2"
+
+#: functions.php:170
+#@ moment
+msgid "Start Area Three"
+msgstr "Startyta 3"
+
+#: functions.php:397
+#, php-format
+#@ requiredfoundation
+msgid "<h6>Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a></h6>"
+msgstr "<h6>Inlagd <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a></h6>"
 

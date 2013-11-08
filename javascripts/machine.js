@@ -108,14 +108,14 @@
 		$rm = 30,
 		$i = 0,
 		$i2 = 0,
-		hint = $("#hint"),
+		hint = $("#hint-student"),
 		biglogo = $("#biglogo"),
 		filledlogo = $("#filledlogo"),
 		hollowlogo = $("#hollowlogo"),
 		logosphere = $(".logosphere");
 
 	function activateHint(){
-		$("#hint").addClass("armed");
+		$(".hint").addClass("armed");
 	}
 
 	function activateMenu(){
@@ -136,7 +136,7 @@
 
 	function closeLid(){
 		$("#eye").removeClass("armed");
-		$("#time-container").find(".focus").addClass("armed");
+		$("#focus").addClass("armed");
 	}
 
 	function removeCover(){
@@ -295,7 +295,7 @@
 
 	function armsequence(){
 
-		if ($(window).scrollTop() >= (biglogo.offset().top) - $(window).height()*0.4){
+		if ($(window).scrollTop() >= (biglogo.offset().top) + $(window).height()*0.1){
     			hollowlogo.addClass("armed");
     			filledlogo.addClass("armed");
     	} else {
@@ -303,25 +303,31 @@
     		filledlogo.removeClass("armed");
     	}
 
-    	if ($(window).scrollTop() >= (biglogo.offset().top) - $(window).height()*0.2){
+    	if ($(window).scrollTop() >= (biglogo.offset().top) + $(window).height()*0.1){
     		logosphere.addClass("armed");
     	} else {
     		logosphere.removeClass("armed");
+    	}
+
+    	if ($(window).scrollTop() >= (biglogo.offset().top) + $(window).height()*0.1){
+    		hint.addClass("end");
+    	} else {
+    		hint.removeClass("end");
     	}
 	}			
 
 	function machineinit(date) {
 		$datestring = date; //Destination date.
-		requestTimeout(activateCoverContent, 100);
-    	requestTimeout(activateCover, 1400);
-    	requestTimeout(removeCover, 3000);
+		requestTimeout(activateCoverContent, 0);
+    	requestTimeout(activateCover, 0);
+    	requestTimeout(removeCover, 200);
     	requestTimeout(openLid, 1500);
     	requestTimeout(initCountdown, 2500);
     	requestTimeout(startCountdown, 2500);
-    	requestTimeout(activateMenu, 3500);
-    	requestTimeout(deployIcons, 4700);
-    	requestTimeout(deployMenuItems, 6200);
-    	requestTimeout(activateHint, 7200);
+    	requestTimeout(activateMenu, 0);
+    	//requestTimeout(deployIcons, 4700);
+    	//requestTimeout(deployMenuItems, 6200);
+    	requestTimeout(activateHint, 0);
 
     	$(window).bind("scroll", function(){  
     		armsequence();
